@@ -185,14 +185,14 @@ body {
   border-radius: 10px 10px 0px 10px;
   align-self: flex-end;
   background: rgb(17,98,222);
-  background: linear-gradient(0deg, rgba(17,98,222,1) 1%, rgba(37,198,247,1) 100%);
+  background: #808080;
 }
 
 .message_other {
   border-radius: 10px 10px 10px 0px;
   align-self: flex-start;
   background: rgb(155,179,217);
-  background: linear-gradient(0deg, rgba(155,179,217,1) 1%, rgba(75,37,247,1) 100%);
+  background: #708090;
 
 }
 
