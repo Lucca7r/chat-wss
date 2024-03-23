@@ -8,8 +8,7 @@
 }
 
 body {
-    background-color: #F0F8FF;
-    
+  background-color: #f0f8ff;
 }
 
 /* Cabeçalho */
@@ -24,7 +23,7 @@ header {
 }
 
 header h1 {
-    color: #fff;
+  color: #fff;
   display: flex;
   align-items: start;
   margin: 0 auto;
