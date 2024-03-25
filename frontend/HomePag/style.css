@@ -13,13 +13,85 @@ header {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    padding: 30px;
-
     font-family: 'poppins';
     font-weight: bold;
 
+    padding: 20px;
+    border-bottom: solid 1px #5A5D6D;
+
+    color: white;
 }
 
- h1 {
+
+#logo_chat {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    gap: 14px;
+
+    font-weight: bold;
+}
+
+#perfil_user {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+
+}
+
+
+nav {
+    border-right: solid 1px #5A5D6D;
+    width: 400px;
     color: white;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+}
+
+#buscador {
+    font-family: 'poppins';
+    color: white;
+    margin-top: 30px;
+
+    background: #1D1F29;
+    border: none;
+    border-radius: 20px;
+    border: solid 1px #5A5D6D;
+
+    padding: 10px 20px;
+
+    cursor: pointer;
+
+}
+
+
+
+#chats > h2 {
+    margin-top: 24px;
+    margin-bottom: 14px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+
+a {
+    border: solid 1px #5A5D6D;
+    display: flex;
+    align-items: center;
+    text-decoration: none;
+    color: white;
+    font-weight: 600;
+}
+
+#chats {
+    width: 100%;
+    height: 100%;
+}
+
+.icons {
+    padding: 15px;
 }
