@@ -7,7 +7,8 @@
 body {
     font-family: 'poppins', sans-serif;
     background-color: #171820;
-}
+    width:100%;
+    height: 100vh;
 
 header {
     display: flex;
@@ -94,4 +95,28 @@ a {
 
 .icons {
     padding: 15px;
+}
+
+#ferramentas {
+    margin-top: 28px;
+    margin-bottom: 12px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+}
+
+#ferramentas > h2 {
+    margin-top: 24px;
+    margin-bottom: 14px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+
+#ferramentas > a {
+    width: 100%;
+    height: 100%;
 }
