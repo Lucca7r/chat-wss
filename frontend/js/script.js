@@ -13,81 +13,81 @@ const user = { id: "", name: "", color: "" };
 let websocket;
 
 const createMessageYou = (content) => {
-  const div = document.createElement("div");
+    const div = document.createElement("div");
 
-  div.classList.add("message_you");
+    div.classList.add("message_you");
 
-  div.innerHTML = content;
+    div.innerHTML = content;
 
-  return div;
+    return div;
 };
 
 const createMessageOther = (content, sender, senderColor) => {
-  const div = document.createElement("div");
-  const span = document.createElement("span");
+    const div = document.createElement("div");
+    const span = document.createElement("span");
 
-  div.classList.add("message_other");
-  span.classList.add("message_send");
-  span.style.color = senderColor;
+    div.classList.add("message_other");
+    span.classList.add("message_send");
+    span.style.color = senderColor;
 
-  div.appendChild(span);
+    div.appendChild(span);
 
-  span.innerHTML = sender;
-  div.innerHTML += content;
+    span.innerHTML = sender;
+    div.innerHTML += content;
 
-  return div;
+    return div;
 };
 
 const getRandomColor = () => {
-  const randomColor = Math.floor(Math.random() * color.length);
-  return color[randomColor];
+    const randomColor = Math.floor(Math.random() * color.length);
+    return color[randomColor];
 };
 
 const scrollScreen = () => {
-  window.scrollTo({
-    top: document.body.scrollHeight,
-    behavior: "smooth",
-  });
+    window.scrollTo({
+        top: document.body.scrollHeight,
+        behavior: "smooth",
+    });
 };
 
 const processMessage = ({ data }) => {
-  const { userId, userName, userColor, conteudo } = JSON.parse(data);
+    const { userId, userName, userColor, conteudo } = JSON.parse(data);
 
-  const message =
-    userId === user.id
-      ? createMessageYou(conteudo)
-      : createMessageOther(conteudo, userName, userColor);
+    const message =
+        userId === user.id
+            ? createMessageYou(conteudo)
+            : createMessageOther(conteudo, userName, userColor);
 
-  chatMessages.appendChild(message);
-  scrollScreen();
+    chatMessages.appendChild(message);
+    scrollScreen();
 };
 
 const handleLogin = (event) => {
-  event.preventDefault();
-  user.name = loginInput.value;
-  user.id = crypto.randomUUID();
-  user.color = getRandomColor();
+    event.preventDefault();
+    user.name = loginInput.value;
+    user.id = crypto.randomUUID();
+    user.color = getRandomColor();
 
-  login.style.display = "none";
-  chat.style.display = "flex";
+    login.style.display = "none";
+    chat.style.display = "flex";
 
-  websocket = new WebSocket("ws://localhost:8080");
-  websocket.onmessage = processMessage;
+    websocket = new WebSocket("ws://localhost:8080");
+    websocket.onmessage = processMessage;
 };
 
 const sendMessage = (event) => {
-  event.preventDefault();
+    event.preventDefault();
 
-  const message = {
-    userId: user.id,
-    userName: user.name,
-    userColor: user.color,
-    conteudo: chatInput.value,
-  };
+    const message = {
+        userId: user.id,
+        userName: user.name,
+        userColor: user.color,
+        conteudo: chatInput.value,
+    };
 
-  websocket.send(JSON.stringify(message));
+    websocket.send(JSON.stringify(message));
 
-  chatInput.value = "";
+    chatInput.value = "";
 };
 
 loginForm.addEventListener("submit", handleLogin);
