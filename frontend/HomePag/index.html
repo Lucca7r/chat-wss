@@ -8,6 +8,7 @@
 	<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700;800&display=swap" rel="stylesheet" />
 	<meta name="viewport" content="width=device-width, initial-scale=1.0" />
 	<link rel="stylesheet" href="style.css">
+	<link rel="stylesheet" href="../css/style.css" />
 	<title>HOME</title>
 </head>
 
@@ -74,10 +75,28 @@
 			</div>
 		</nav>
 		<div id="conteudo">
+			<section class="chat">
+				<section class="chat_massage">
+					<div class="message_you">ola mundo</div>
+	
+					<div class="message_other">
+						<span class="message_send">lucca</span>
+						ola, mundo.
+					</div>
+				</section>
+				<form class="chat_form">
+					<input type="text" class="chat_input" placeholder="Digite sua mensagem..." required />
+					<button type="submit" class="chat_button">
+						<span class="material-symbols-outlined"> Enviar </span>
+					</button>
+				</form>
+			</section>
+		</section>
 
 		</div>
 	</div>
 
+	<!--
 	<script>
 		document.getElementById('chat-geral').addEventListener('click', function (event) {
 			event.preventDefault();
@@ -100,6 +119,7 @@
 				});
 		}
 	</script>
+-->
 </body>
 
 </html>
