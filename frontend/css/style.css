@@ -1,204 +1,114 @@
 * {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-  font-family: "inter", sans-serif;
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
 }
 
 :root {
-  font-size: 16px;
+    font-size: 16px;
 }
 
-html {
-  height: 100%;
-  background: rgb(255, 255, 255);
-  background: linear-gradient(
-    0deg,
-    rgba(255, 255, 255, 1) 20%,
-    rgba(37, 228, 247, 1) 100%
-  );
-}
 
 body {
-  min-height: 100%;
-  color: #f2f2f2;
-}
-
-.conteiner {
-  width: 100%;
-  height: 100dvh;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-}
-
-.login {
-  width: 100%;
-  max-width: 300px;
-  background-color: #212121;
-  border-radius: 10px;
-  padding: 20px;
+    font-family: "poppins", sans-serif;
+    color: #f2f2f2;
+    width: 100%;
+    height: 100%;
 
 }
 
-.login > h2 {
-  text-align: center;
-
-  font-weight: 600;
-  font-size: 1.5rem;
-
-  margin-bottom: 20px;
+section.chat_massage {
+    width: 100%;
 }
 
-.login_form {
-  display: flex;
-  flex-direction: column;
-  gap: 20px;
-}
-
-.login_input {
-  padding: 15px;
-  border-radius: 5px;
-  border: none;
-  background-color: #121212;
-  color: #f2f2f2;
-  outline: none;
-  border-radius: 10px;
-}
-
-.login_input:focus {
-  border: 2px solid #37b9f1;
-}
-
-.login_input::placeholder {
-  color: #f2f2f2;
-}
-
-.login_button {
-  padding: 15px;
-  border-radius: 5px;
-  border: none;
-  background-color: #121212;
-  color: #f2f2f2;
-  outline: none;
-  border-radius: 10px;
-  cursor: pointer;
-  transition: 0.3s;
-
-  font-size: 0.83rem;
-  font-weight: 600;
-  overflow: hidden;
-  position: relative;
-
-  z-index: 1;
-}
-
-.login_button::before {
-  content: "";
-  position: absolute;
-  top: 0;
-  left: -100%;
-  width: 100%;
-  height: 100%;
-  background-color: #f2f2f2;
-  transition: left 0.3s;
-  z-index: -1;
-}
-
-.login_button:hover::before {
-  left: 0;
-}
-
-.login_button:hover {
-  color: black;
+.container {
+    width: 80%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
 
 .chat {
-  width: 100%;
-  height: 100%;
-  display: none;
-  flex-direction: column;
-  justify-content: space-between;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
 }
 
 .chat_massage {
-  flex-grow: 1;
-  padding: 15px 15px 90px;
-  display: flex;
-  flex-direction: column;
-  justify-content: flex-end;
+    flex-grow: 1;
+    padding: 15px 15px 90px;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
 }
 
 .chat_form {
-  background-color: #191919;
-  padding: 15px 15px;
-  display: flex;
-  align-items: center;
-  gap: 10px;
-  position: fixed;
-  bottom: 0;
-  left: 0;
-  width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
 }
 
 .chat_input {
-  padding: 15px;
-  border-radius: 10px;
-  border: none;
-  background-color: #121212;
-  color: #f2f2f2;
-  outline: none;
-  border-radius: 10px;
-  flex-grow: 1;
+    padding: 15px;
+    border-radius: 10px;
+    border: none;
+    background-color: #1D1F29;
+    color: #f2f2f2;
+    outline: none;
+    display: flex;
+    justify-content: center;
+    width: 80%;
+    font-weight: 400;
 }
 
 .chat_input::placeholder {
-  color: #f2f2f2;
+    color: #f2f2f2;
 }
 
 .chat_button {
-  padding: 15px;
-  border-radius: 10px;
-  border: none;
-  background-color: #121212;
-  color: #f2f2f2;
-  outline: none;
-  cursor: pointer;
-  transition: 0.3s;
+    border: none;
+    outline: none;
+    padding: 5px 10px;
+    border-radius: 10px;
+    background-color: #D9D9D9;
+    color: black;
+    font-weight: 600;
 }
 
 .chat_button > span {
-  font-size: 1.5rem;
+    font-size: 1.5rem;
 }
 
 .chat_massage > div {
-  padding: 10px;
-  width: 100%;
-  max-width: 250px;
-  font-size: 1rem;
-  font-weight: 600;
-  margin-bottom: 15px;
-  line-height: 22px;
+    padding: 10px;
+    width: 100%;
+    max-width: 250px;
+    font-size: 1rem;
+    font-weight: 400;
+    margin-bottom: 15px;
+    line-height: 22px;
 }
 
 .message_you {
-  border-radius: 10px 10px 0px 10px;
-  align-self: flex-end;
-  background: rgb(17,98,222);
-  background: #808080;
+    border-radius: 10px 0px 10px 10px;
+    align-self: flex-end;
+    background: rgb(17, 98, 222);
+    background: #1D1F29;
 }
 
 .message_other {
-  border-radius: 10px 10px 10px 0px;
-  align-self: flex-start;
-  background: rgb(155,179,217);
-  background: #708090;
-
+    border-radius: 0px 10px 10px 10px;
+    align-self: flex-start;
+    background: rgb(155, 179, 217);
+    background: #1D1F29;
 }
 
 .message_send {
-  display: block;
-  margin-bottom: 15px;
-  font--weight: 600;
-  color: red;
+    display: block;
+    margin-bottom: 15px;
+    font--weight: 600;
+    color: white;
 }

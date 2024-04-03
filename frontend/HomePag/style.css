@@ -5,25 +5,24 @@
 }
 
 body {
-    font-family: 'poppins', sans-serif;
+    font-family: "poppins", sans-serif;
     background-color: #171820;
-    width:100%;
-    height: 100vh;
+    width: 100%;
+    height: 100%;
 }
 
 header {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    font-family: 'poppins';
+    font-family: "poppins";
     font-weight: bold;
 
     padding: 20px;
-    border-bottom: solid 1px #5A5D6D;
+    border-bottom: solid 1px #5a5d6d;
 
     color: white;
 }
-
 
 #logo_chat {
     display: flex;
@@ -39,41 +38,37 @@ header {
     display: flex;
     align-items: center;
     gap: 10px;
-
 }
 
-
-
 #buscador {
-    font-family: 'poppins';
+    font-family: "poppins";
     color: white;
-    margin-top: 30px;
-    
-    background: #1D1F29;
+    /* margin-top: 30px; */
+    background: #1d1f29;
     border: none;
     border-radius: 20px;
-    border: solid 1px #5A5D6D;
-    
+    border: solid 1px #5a5d6d;
     padding: 10px 20px;
-    
-    cursor: pointer;
+    /* cursor: pointer; */
 }
 
 #lupa_busca {
     position: absolute;
-    margin-left: 10px;    
+    right: 15px;
+    top: 50%;
+    transform: translateY(-50%);
+    cursor: pointer;
 }
 
 nav {
-    border-right: solid 1px #5A5D6D;
+    border-right: solid 1px #5a5d6d;
     width: 400px;
-    height: 100vh;
+    /* height: 100vh; */
     color: white;
     display: flex;
     flex-direction: column;
     align-items: center;
 }
-
 
 #chats > h2 {
     margin-top: 24px;
@@ -83,9 +78,8 @@ nav {
     justify-content: center;
 }
 
-
 a {
-    border: solid 1px #5A5D6D;
+    border: solid 1px #5a5d6d;
     display: flex;
     align-items: center;
     text-decoration: none;
@@ -119,8 +113,24 @@ a {
     justify-content: center;
 }
 
-
 #ferramentas > a {
     width: 100%;
     height: 100%;
+}
+
+#pagina {
+    display: flex;
+}
+
+#conteudo {
+    width: 100%;
+    display: flex;
+}
+
+#busca {
+    margin-top: 30px;
+}
+
+.search-container {
+    position: relative;
 }
