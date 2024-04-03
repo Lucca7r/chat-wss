@@ -2,7 +2,6 @@
     margin: 0;
     padding: 0;
     box-sizing: border-box;
-    /* font-family: "inter", sans-serif; */
 }
 
 :root {
@@ -12,8 +11,14 @@
 
 body {
     font-family: "poppins", sans-serif;
-    min-height: 100%;
     color: #f2f2f2;
+    width: 100%;
+    height: 100%;
+
+}
+
+section.chat_massage {
+    width: 100%;
 }
 
 .container {

@@ -6,6 +6,8 @@ const chat = document.querySelector(".chat");
 const chatForm = document.querySelector(".chat_form");
 const chatInput = document.querySelector(".chat_input");
 
+const geralChat = document.querySelector(".geral-chat");
+
 const chatMessages = document.querySelector(".chat_massage");
 
 const user = { id: "", name: "", color: "" };
@@ -90,5 +92,5 @@ const sendMessage = (event) => {
     chatInput.value = "";
 };
 
-loginForm.addEventListener("submit", handleLogin);
+geralChat.addEventListener("click", handleLogin);
 chatForm.addEventListener("submit", sendMessage);
