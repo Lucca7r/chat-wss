@@ -1,7 +1,6 @@
 const login = document.querySelector(".login");
 const loginForm = document.querySelector(".login_form");
 
-console.log("teste");
 
 const chat = document.querySelector(".chat");
 const chatForm = document.querySelector(".chat_form");
