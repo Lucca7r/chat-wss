@@ -29,15 +29,29 @@
       </span>
       <p>Nome de Usúario</p>
       <form class="login_form" action="./frontend/HomePag/index.html">
-      <input
-      type="text"
-      id="nome"
+        <input
+          type="text"
+          id="nome"
           name="nome"
           placeholder="Escreva um nome"
         />
-        <button type="submit">ENTRAR</button>
+        <input type="submit" id="login_button" value="iiiii" >
+
+
+        
       </form>
     </main>
+
+    <script>
+      document.querySelector('.login_form').addEventListener('submit', function(event) {
+        event.preventDefault();
+        var nome = document.getElementById('nome').value;
+        localStorage.setItem('nome', nome);
+        window.location.href = './frontend/HomePag/index.html';
+      });
+    </script>
+
+
     <script src="./frontend/js/script.js"></script>
     <script src="./frontend/js/color.js"></script>
   </body>

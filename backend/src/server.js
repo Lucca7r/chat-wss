@@ -11,6 +11,7 @@ wss.on("connection", (ws) => {
     ws.on("error", console.error);
 
     ws.on("message", (data) => {
+        console.log("passou aqui");
         wss.clients.forEach((client) => client.send(data.toString()));
     });
 

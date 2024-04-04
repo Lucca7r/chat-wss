@@ -1,17 +1,17 @@
 const login = document.querySelector(".login");
 const loginForm = document.querySelector(".login_form");
-const loginInput = document.querySelector(".login_input");
+
+console.log("teste");
 
 const chat = document.querySelector(".chat");
 const chatForm = document.querySelector(".chat_form");
 const chatInput = document.querySelector(".chat_input");
 
-const geralChat = document.querySelector(".geral-chat");
-
 const chatMessages = document.querySelector(".chat_massage");
 
-const user = { id: "", name: "", color: "" };
+const geralChat = document.querySelector(".geral-chat");
 
+const user = { id: "", name: "", color: "" };
 let websocket;
 
 const createMessageYou = (content) => {
@@ -65,17 +65,15 @@ const processMessage = ({ data }) => {
 };
 
 const handleLogin = (event) => {
-    event.preventDefault();
-    user.name = loginInput.value;
     user.id = crypto.randomUUID();
     user.color = getRandomColor();
 
-    login.style.display = "none";
-    chat.style.display = "flex";
 
     websocket = new WebSocket("ws://localhost:8080");
     websocket.onmessage = processMessage;
 };
+
+
 
 const sendMessage = (event) => {
     event.preventDefault();
@@ -87,10 +85,18 @@ const sendMessage = (event) => {
         conteudo: chatInput.value,
     };
 
+
+
     websocket.send(JSON.stringify(message));
 
     chatInput.value = "";
 };
 
-geralChat.addEventListener("click", handleLogin);
+
 chatForm.addEventListener("submit", sendMessage);
+window.addEventListener('DOMContentLoaded', (event) => {
+    var nome = localStorage.getItem('nome');
+    user.name = nome;
+    console.log(user);
+    handleLogin();
+ });
