@@ -75,43 +75,29 @@
 			</div>
 		</nav>
 		<div id="conteudo">
-			<section class="chat">
-				<section class="chat_massage">
-					<div class="message_you">ola mundo</div>
-	
-					<div class="message_other">
-						<span class="message_send">lucca</span>
-						ola, mundo.
-					</div>
-				</section>
-				<form class="chat_form">
-					<input type="text" class="chat_input" placeholder="Digite sua mensagem..." required />
-					<button type="submit" class="chat_button">
-						<span class="material-symbols-outlined"> Enviar </span>
-					</button>
-
-					
-				</form>
-			</section>
-		</section>
+		
 
 		</div>
 	</div>
 
 
 	<script>
-		document.getElementById('chat-geral').addEventListener('click', function (event) {
-			event.preventDefault();
-			loadContent('chat_geral.html');
-		});
-
-		document.getElementById('chat-jogos').addEventListener('click', function (event) {
-			event.preventDefault();
-			loadContent('chat_jogos.html');
-		});
-
-		function loadContent(page) {
-			fetch(page)
+		let ativo = true;
+		if (ativo) {
+			document.getElementById('chat-geral').addEventListener('click', function (event) {
+				event.preventDefault();
+				loadContent('chat_geral.html');
+				ativo = false;
+			});
+			
+			document.getElementById('chat-jogos').addEventListener('click', function (event) {
+				event.preventDefault();
+				loadContent('chat_jogos.html');
+			});
+			
+			
+			function loadContent(page) {
+				fetch(page)
 				.then(response => response.text())
 				.then(data => {
 					document.getElementById('conteudo').innerHTML = data;
@@ -119,6 +105,8 @@
 				.catch(error => {
 					console.error('Error:', error);
 				});
+			}
+			
 		}
 	</script>
 	
