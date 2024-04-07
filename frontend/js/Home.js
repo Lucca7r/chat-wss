@@ -1,9 +1,9 @@
 let chatAtivo = false;
-const chatInput = document.querySelector(".chat_input");
+
 
 document.addEventListener("DOMContentLoaded", function () {
     const chatGeralElement = document.getElementById("chat-geral");
-    if (chatGeralElement) {
+    if (!chatAtivo) {
       chatGeralElement.addEventListener("click", function (event) {
         event.preventDefault();
         loadContent("chat_geral.html");
@@ -24,12 +24,6 @@ document.addEventListener("DOMContentLoaded", function () {
         });
     }
   }
-  
-  document.addEventListener("click", function (event) {
-    if (chatAtivo) {
-      event.preventDefault();
-      console.log("chat")
-    }
-  });
+ 
   
   
