@@ -23,12 +23,17 @@ if (!chatAtivo) {
       .then((data) => {
         document.getElementById("conteudo").innerHTML = data;
         existe = true;
+        connectWebsocket();
       })
       .catch((error) => {
         console.error("Error:", error);
       });
   }
 }
+
+const connectWebsocket = () => {
+  websocket = new WebSocket("ws://localhost:8080");
+};
 
 document.addEventListener("click", (event) => {
 
@@ -41,6 +46,9 @@ document.addEventListener("click", (event) => {
     const chatMessages = document.querySelector(".chat_massage");
 
     let websocket;
+    const connectWebsocket = () => {
+      websocket = new WebSocket("ws://localhost:8080");
+    };
 
 
     const createMessageYou = (content) => {
@@ -61,7 +69,6 @@ document.addEventListener("click", (event) => {
 
       chatMessages.appendChild(element);
     };
-    websocket = new WebSocket("ws://localhost:8080");
 
     websocket.addEventListener("open", (event) => {
       const enviarMensagem = (event) => {
