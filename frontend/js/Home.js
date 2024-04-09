@@ -1,4 +1,6 @@
+//*atiar o chat
 let chatAtivo = false;
+//*verificar se o chat existe
 let existe = false;
 
 const user = { id: "", name: "", color: "" };
