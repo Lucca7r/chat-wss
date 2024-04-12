@@ -10,3 +10,4 @@ const sendMessage = (event) => {
 
 
 chatForm.addEventListener("submit", sendMessage);
+
