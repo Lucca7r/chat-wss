@@ -8,10 +8,17 @@ chatGeral.addEventListener('click', function (event)
       .then((response) => response.text())
       .then((data) => {
         document.getElementById("conteudo").innerHTML = data;
-        
+        executeScriptInContent();
       })
       .catch((error) => {
         console.error("Error:", error);
       });
   })
+
+  function executeScriptInContent() {
+    const scripts = document.getElementById("conteudo").getElementsByTagName("script");
+    for (let i = 0; i < scripts.length; i++) {
+      eval(scripts[i].innerText); // Avalia o conteúdo do script
+    }
+  }
 
