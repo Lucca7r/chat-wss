@@ -46,8 +46,7 @@
       document.querySelector('.login_form').addEventListener('submit', function(event) {
         event.preventDefault();
         var nome = document.getElementById('nome').value;
-        const userId = crypto.randomUUID();
-        localStorage.setItem('nome', nome);
+        sessionStorage.setItem('nome', nome);
         window.location.href = './frontend/HomePag/home-pag.html';
       });
     </script>
