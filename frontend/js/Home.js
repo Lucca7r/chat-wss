@@ -1,90 +1,23 @@
-//*atiar o chat
-let chatAtivo = false;
-//*verificar se o chat existe
-let existe = false;
+// Select the chat_geral element
+const chatGeral = document.getElementById("#chat-geral");
 
-const user = { id: "", name: "", color: "" };
 
-let websocket;
+chatGeral.addEventListener('click', function() {
+  
+  const chatContent = document.getElementById('conteudo');
 
-document.addEventListener("DOMContentLoaded", function () {
-  const chatGeralElement = document.getElementById("chat-geral");
-  if (!chatAtivo) {
-    chatGeralElement.addEventListener("click", function (event) {
-      event.preventDefault();
-      loadContent("chat_geral.html");
-      chatAtivo = true;
-    });
-  }
-});
 
-if (!chatAtivo) {
-  function loadContent(page) {
-    fetch(page)
-      .then((response) => response.text())
-      .then((data) => {
-        document.getElementById("conteudo").innerHTML = data;
-        existe = true;
+  if (chatContent.innerHTML === '') {
+   
+    fetch('chat.html')
+      .then(response => response.text())
+      .then(data => {
+   
+        chatContent.innerHTML = data;
       })
-      .catch((error) => {
-        console.error("Error:", error);
+      .catch(error => {
+        console.error('Error loading chat content:', error);
+
       });
   }
-}
-
-document.addEventListener("click", (event) => {
-
-  if (existe) {
-    chatForm = document.getElementById("chat_form");
-    chatInput = document.querySelector(".chat_input");
-    chatButton = document.querySelector(".chat_button");
-
-    /*mensagens */ 
-    const chatMessages = document.querySelector(".chat_massage");
-
-    let websocket;
-
-
-    const createMessageYou = (content) => {
-      const div = document.createElement("div");
-    
-      div.innerHTML = content;
-      div.classList.add("message_you");
-      return div;
-    };
-
-    const processMessage = ({ data }) => {
-      const {
-        userName,
-        conteudo,
-      } = JSON.parse(data);
-
-      const element = createMessageYou(conteudo);
-
-      chatMessages.appendChild(element);
-    };
-    websocket = new WebSocket("ws://localhost:8080");
-
-    websocket.addEventListener("open", (event) => {
-      const enviarMensagem = (event) => {
-        event.preventDefault();
-        const message = {
-          userName: user.name,
-          conteudo: chatInput.value,
-        };
-
-        websocket.send(JSON.stringify(message));
-
-        websocket.onmessage = processMessage;
-        chatInput.value = "";
-      };
-      chatForm.addEventListener("submit", enviarMensagem);
-    });
-
-   
-}});
-
-window.addEventListener("DOMContentLoaded", (event) => {
-  var nome = localStorage.getItem("nome");
-  user.name = nome;
 });
