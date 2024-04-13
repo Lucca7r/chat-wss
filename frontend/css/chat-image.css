@@ -44,7 +44,7 @@ section.chat_massage {
     justify-content: flex-end;
 }
 
-.chat_form {
+#chat_form {
     display: flex;
     align-items: center;
     justify-content: center;
@@ -114,14 +114,22 @@ section.chat_massage {
 }
 
 
-.custom-file-upload {
-    display: flex;
-    align-items: center;
+.file-upload {
+    display:flex;
+    }
+  
+  .file-upload-label {
+    padding: 10px 20px;
+    background-color: #4CAF50;
     color: white;
-    background-color: #D9D9D9;
-
-    border-radius: 15px;
-    paddind: 15px;
-
-}
+    cursor: pointer;
+  }
+  
+  .file-upload-input {
+    position: absolute;
+    left: 0;
+    top: 0;
+    opacity: 0;
+    cursor: pointer;
+  }
 
