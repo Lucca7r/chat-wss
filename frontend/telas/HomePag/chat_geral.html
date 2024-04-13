@@ -70,6 +70,13 @@
 
       const name = localStorage.getItem("nome");
 
+      const user = { id: "", name: "", color: "" };
+
+      user.name = name;
+      user.color = getRandomColor();
+      user.id = crypto.randomUUID();
+      console.log(user);
+
       // Função para criar uma mensagem
       const createMessageSelfElement = (content) => {
         const div = document.createElement("div");
@@ -77,6 +84,13 @@
         div.innerHTML = content;
 
         return div;
+      };
+
+      const scrollScreen = () => {
+        window.scrollTo({
+          top: document.body.scrollHeight,
+          behavior: "smooth",
+        });
       };
 
       const createMessageOtherElement = (content, sender, senderColor) => {
@@ -105,12 +119,24 @@
             ? createMessageSelfElement(content)
             : createMessageOtherElement(content, userName, userColor);
         chatMessages.appendChild(message);
+        scrollScreen();
       };
 
-      const user = {
-        id: crypto.randomUUID(),
-        userName: name,
-        color: getRandomColor(),
+      // Função para enviar mensagem
+      const enviarMensagem = (event) => {
+        event.preventDefault();
+        console.log(user);
+
+        const message = {
+          userId: user.id,
+          userName: user.userName,
+          userColor: user.color,
+          content: chatInput.value,
+        };
+
+        // Enviar mensagem para o servidor via WebSocket
+        websocket.send(JSON.stringify(message));
+        chatInput.value = ""; // Limpar campo de entrada
       };
 
       // Conectar ao WebSocket
@@ -118,28 +144,11 @@
 
       // Evento que ocorre quando a conexão é estabelecida
       websocket.addEventListener("open", (event) => {
-        // Função para enviar mensagem
-        const enviarMensagem = (event) => {
-          event.preventDefault();
-
-          const message = {
-            userId: user.id,
-            userName: user.userName,
-            userColor: user.color,
-            content: chatInput.value,
-          };
-
-          // Enviar mensagem para o servidor via WebSocket
-          websocket.send(JSON.stringify(message));
-          chatInput.value = ""; // Limpar campo de entrada
-        };
-
-        // Adicionar evento de submit ao formulário
-        chatForm.addEventListener("submit", enviarMensagem);
-
         // Ouvir mensagens recebidas do servidor
         websocket.onmessage = processMessage;
       });
+      // Adicionar evento de submit ao formulário
+      chatForm.addEventListener("submit", enviarMensagem);
     </script>
   </body>
 </html>

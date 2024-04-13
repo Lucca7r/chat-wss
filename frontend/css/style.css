@@ -12,7 +12,7 @@ body {
   font-family: "poppins", sans-serif;
   color: #f2f2f2;
   width: 100%;
-  height: 100vh;
+  height: 100%;
 }
 
 section.chat_massage {
@@ -60,7 +60,7 @@ section.chat_massage {
   background-color: #1d1f29;
   color: #f2f2f2;
   outline: none;
-    width: 100%;
+  width: 100%;
 }
 .chat_input::placeholder {
   color: #f2f2f2;
@@ -75,8 +75,7 @@ section.chat_massage {
   color: black;
   font-weight: 600;
   position: absolute;
-    right: 30px;
-  
+  right: 30px;
 }
 
 .chat_button > span {
