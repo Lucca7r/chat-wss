@@ -31,13 +31,13 @@
             ola, mundo.
           </div>-->
         </section>
-        <form id="chat_form">
-          <input
-            type="text"
-            class="chat_input"
-            placeholder="Digite sua mensagem..."
-            required
-          />
+        <form id="chat_form_img">
+          <div class="file-upload">
+            <label for="file-upload-input" class="file-upload-label">
+              Clique aqui para fazer upload
+            </label>
+            <input id="file-upload-input" type="file" class="file-upload-input" hidden />
+          </div>
           <button type="submit" class="chat_button">
             <span class="material-symbols-outlined"> send </span>
           </button>
@@ -46,6 +46,14 @@
     </section>
 
     <script>
+      // Selecionando elementos do DOM
+      const chatForm = document.getElementById("chat_form_img");
+      const chatInput = document.querySelector(".chat_input");
+      const chatButton = document.querySelector(".chat_button");
+      const chatMessages = document.querySelector(".chat_massage");
+
+      
+
      
     </script>
 
