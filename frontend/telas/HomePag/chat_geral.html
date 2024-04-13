@@ -68,11 +68,11 @@
 
       let websocket;
 
-      const name = localStorage.getItem("nome");
-
       const user = { id: "", name: "", color: "" };
+      const localName = localStorage.getItem("nome");
 
-      user.name = name;
+
+      user.name = localName || "Anônimo";
       user.color = getRandomColor();
       user.id = crypto.randomUUID();
       console.log(user);
@@ -112,12 +112,13 @@
 
       // Função para processar a mensagem recebida
       const processMessage = ({ data }) => {
-        const { userId, userName, userColor, content } = JSON.parse(data);
-        console.log(userName, content, name);
+        console.log(JSON.parse(data));
+        const { userId, userColor, content } = JSON.parse(data);
+        console.log(userId, userColor, content);
         const message =
           userId == user.id
             ? createMessageSelfElement(content)
-            : createMessageOtherElement(content, userName, userColor);
+            : createMessageOtherElement(content,  userColor);
         chatMessages.appendChild(message);
         scrollScreen();
       };

@@ -22,3 +22,4 @@ chatGeral.addEventListener('click', function (event)
     }
   }
 
+
