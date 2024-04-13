@@ -1,0 +1,127 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+:root {
+    font-size: 16px;
+}
+
+
+body {
+    font-family: "poppins", sans-serif;
+    color: #f2f2f2;
+    width: 100%;
+    height: 100%;
+
+}
+
+section.chat_massage {
+    width: 100%;
+}
+
+.container {
+    width: 80%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.chat {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.chat_massage {
+    flex-grow: 1;
+    padding: 15px 15px 90px;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+}
+
+.chat_form {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+}
+
+.chat_input {
+    padding: 15px;
+    border-radius: 10px;
+    border: none;
+    background-color: #1D1F29;
+    color: #f2f2f2;
+    outline: none;
+    display: flex;
+    justify-content: center;
+    width: 80%;
+    font-weight: 400;
+}
+
+.chat_input::placeholder {
+    color: #f2f2f2;
+}
+
+.chat_button {
+    border: none;
+    outline: none;
+    padding: 5px 10px;
+    border-radius: 10px;
+    background-color: #D9D9D9;
+    color: black;
+    font-weight: 600;
+}
+
+.chat_button > span {
+    font-size: 1.5rem;
+}
+
+.chat_massage > div {
+    padding: 10px;
+    width: 100%;
+    max-width: 250px;
+    font-size: 1rem;
+    font-weight: 400;
+    margin-bottom: 15px;
+    line-height: 22px;
+}
+
+.message_you {
+    border-radius: 10px 0px 10px 10px;
+    align-self: flex-end;
+    background: rgb(17, 98, 222);
+    background: #1D1F29;
+}
+
+.message_other {
+    border-radius: 0px 10px 10px 10px;
+    align-self: flex-start;
+    background: rgb(155, 179, 217);
+    background: #1D1F29;
+}
+
+.message_send {
+    display: block;
+    margin-bottom: 15px;
+    font--weight: 600;
+    color: white;
+}
+
+
+.custom-file-upload {
+    display: flex;
+    align-items: center;
+    color: white;
+    background-color: #D9D9D9;
+
+    border-radius: 15px;
+    paddind: 15px;
+
+}
+

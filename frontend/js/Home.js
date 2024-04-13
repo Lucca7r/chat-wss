@@ -1,4 +1,5 @@
 const chatGeral = document.getElementById("chat-geral");
+const chatImage = document.getElementById("chat-image");
 
 
 chatGeral.addEventListener('click', function (event) 
@@ -14,6 +15,21 @@ chatGeral.addEventListener('click', function (event)
         console.error("Error:", error);
       });
   })
+
+
+chatImage.addEventListener('click', function (event)
+    {
+      event.preventDefault();
+      fetch('../chat-image/chat_image.html')
+        .then((response) => response.text())
+        .then((data) => {
+          document.getElementById("conteudo").innerHTML = data;
+          executeScriptInContent();
+        })
+        .catch((error) => {
+          console.error("Error:", error);
+        });
+    });
 
   function executeScriptInContent() {
     const scripts = document.getElementById("conteudo").getElementsByTagName("script");
