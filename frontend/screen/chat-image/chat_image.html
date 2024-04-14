@@ -21,8 +21,8 @@
   </head>
 
   <body>
-   <section class="container">
-   <section class="chat">
+    <section class="container">
+      <section class="chat">
         <section class="chat_massage">
           <!--<<div class="message_you">ola mundo</div>
 
@@ -36,7 +36,12 @@
             <label for="file-upload-input" class="file-upload-label">
               Clique aqui para fazer upload
             </label>
-            <input id="file-upload-input" type="file" class="file-upload-input" hidden />
+            <input
+              id="file-upload-input"
+              type="file"
+              class="file-upload-input"
+              hidden
+            />
           </div>
           <button type="submit" class="chat_button">
             <span class="material-symbols-outlined"> send </span>
@@ -46,16 +51,26 @@
     </section>
 
     <script>
-      // Selecionando elementos do DOM
       const chatForm = document.getElementById("chat_form_img");
+      const chatInputFile = document.getElementById("file-upload-input");
       const chatInput = document.querySelector(".chat_input");
       const chatButton = document.querySelector(".chat_button");
       const chatMessages = document.querySelector(".chat_massage");
 
-      
+      chatForm.addEventListener("submit", (e) => {
+        e.preventDefault();
 
-     
+        const file = chatInputFile.files[0];
+
+        const img = document.createElement("img");
+        img.src = URL.createObjectURL(file);
+        img.width = 200;
+
+        chatMessages.appendChild(img);
+
+        
+      });
     </script>
-
+    <script src="chat-image.js"></script>
   </body>
 </html>

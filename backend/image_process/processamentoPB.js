@@ -1,18 +1,25 @@
+const express = require('express');
 const sharp = require('sharp');
+const fs = require('fs');
+const path = require('path');
 
-function processImage(input, output) {
-  console.log('Processing image...');
+const app = express();
 
-  sharp(input)
-    .resize(300, 200)
-    .greyscale() // transforma a imagem em preto e branco
+app.post('process-image', (req, res) => {
+  const file = req.files.image;
+  const output = path.join(__dirname, 'output.jpg');
+
+  sharp(file.data)
+    .greyscale()
     .toFile(output, (err) => {
       if (err) {
-        console.error('Image processing failed:', err);
+        res.status(500).send('Image processing failed.');
       } else {
-        console.log('Image processed successfully!');
+        res.sendFile(output);
       }
     });
-}
+});
 
-processImage('input.webp', 'output3.png');
+app.listen(5500, () => {
+  console.log('Server is running on port 5500');
+});
