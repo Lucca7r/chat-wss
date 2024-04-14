@@ -5,7 +5,10 @@ const path = require('path');
 
 const app = express();
 
-app.post('process-image', (req, res) => {
+__dirname = path.resolve();
+
+app.post('/process-image', (req, res) => {
+  console.log('Request received');
   const file = req.files.image;
   const output = path.join(__dirname, 'output.jpg');
 
