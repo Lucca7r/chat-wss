@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     
     
-    <link rel="stylesheet" href="/chat-wss/frontend/css/login-jogo-memoria.css">
+    <link rel="stylesheet" href="/frontend/css/login-jogo-memoria.css">
     
     
     <title>Memory Game | Login</title>
@@ -14,7 +14,7 @@
     <form class="login__form">
 
         <div class="login__header">
-            <img src="/chat-wss/frontend/screen/jogo__memoria/assets/brain.png" alt="brain icon">
+            <img src="/frontend/screen/jogo__memoria/assets/brain.png" alt="brain icon">
             <h1>Memory Game</h1>
         </div>
 
@@ -46,7 +46,7 @@ const handleSubmit = (event) => {
     event.preventDefault()
 
     localStorage.setItem('player', input.value);
-    window.location = '/chat-wss/frontend/screen/jogo__memoria/game.html'
+    window.location = '/frontend/screen/jogo__memoria/game.html'
 
 
 }

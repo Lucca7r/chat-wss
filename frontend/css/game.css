@@ -13,7 +13,7 @@ main {
     display:flex;
     flex-direction: column;
     width: 100%;
-    background-image: url('/chat-wss/frontend/screen/jogo__memoria/assets/bg.jpg');
+    background-image: url('/frontend/screen/jogo__memoria/assets/bg.jpg');
     background-size: cover;
     min-height: 100vh;
     align-items: center;
@@ -72,7 +72,7 @@ header {
 }
 
 .back {
-    background-image: url('/chat-wss/frontend/screen/jogo__memoria/assets/back.png');
+    background-image: url('/frontend/screen/jogo__memoria/assets/back.png');
     backface-visibility: hidden;
 }
 
