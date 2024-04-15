@@ -64,7 +64,7 @@
         const formData = new FormData();
         formData.append('image', file);
       
-        fetch('/', {
+        fetch('/process-image', {
           method: 'POST',
           body: formData
         })
