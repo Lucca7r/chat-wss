@@ -76,6 +76,7 @@ section.chat_massage {
     background-color: #D9D9D9;
     color: black;
     font-weight: 600;
+    cursor: pointer;
 }
 
 .chat_button > span {
@@ -109,7 +110,7 @@ section.chat_massage {
 .message_send {
     display: block;
     margin-bottom: 15px;
-    font--weight: 600;
+    font-weight: 600;
     color: white;
 }
 

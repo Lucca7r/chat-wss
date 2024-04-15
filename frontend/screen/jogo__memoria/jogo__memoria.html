@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    
+    <link rel="stylesheet" href="/frontend/css/login-jogo-memoria.css">
+    
+    
+    <title>Memory Game | Login</title>
+</head>
+<body>
+    <form class="login__form">
+
+        <div class="login__header">
+            <img src="/frontend/screen/jogo__memoria/assets/brain.png" alt="brain icon">
+            <h1>Memory Game</h1>
+        </div>
+
+        <input type="text" placeholder="Name" class="login__input">
+        <button type="submit" class = "login__button" disabled>Play</button>
+
+    </form>
+
+
+    <script>
+        const input = document.querySelector('.login__input')
+const button = document.querySelector('.login__button')
+const form = document.querySelector('.login__form')
+
+const validateInput = ({ target }) => {
+    if (target.value.length > 2 ) {
+        button.removeAttribute('disabled')
+
+        return;
+
+    } 
+    
+    button.setAttribute('disabled', '')
+   
+}
+
+
+const handleSubmit = (event) => {
+    event.preventDefault()
+
+    localStorage.setItem('player', input.value);
+    window.location = '/frontend/screen/jogo__memoria/game.html'
+
+
+}
+
+input.addEventListener('input', validateInput)
+form.addEventListener('submit', handleSubmit)
+    </script>
+
+</body>
+</html>
