@@ -28,7 +28,7 @@
         <img src="assets/foto-perfil.svg" alt="user" />
       </span>
       <p>Nome de Usúario</p>
-      <form class="login_form" action="frontend/screen/HomePag/home-pag.html">
+      <form class="login_form" action="/chat-wss/frontend/screen/Home/home-pag.html">
         <input
           type="text"
           id="nome"
@@ -47,7 +47,7 @@
         event.preventDefault();
         var nome = document.getElementById('nome').value;
         sessionStorage.setItem('nome', nome);
-        window.location.href = '/frontend/screen/Home/home-pag.html';
+        window.location.href = '/chat-wss/frontend/screen/Home/home-pag.html';
       });
     </script>
 
