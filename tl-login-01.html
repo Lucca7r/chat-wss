@@ -17,12 +17,18 @@
         <img src="/frontend/screen/Home/assets/chatbalao.png" alt="logo" />
         <h1>Chat</h1>
       </div>
-      <nav>
+      <button id="menu-toggle" aria-label="Menu" aria-controls="menu">
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
+      <nav id="menu">
         <a href="/frontend/HomePag/home-pag.html">Página inicial</a>
         <a href="">Login</a>
         <a href="">Sobre</a>
       </nav>
     </header>
+    
     <main>
       <span id="photo-user">
         <img src="assets/foto-perfil.svg" alt="user" />
@@ -36,9 +42,6 @@
           placeholder="Escreva um nome"
         />
         <input type="submit" id="login_button" value="Entrar" >
-
-
-        
       </form>
     </main>
 
@@ -48,6 +51,16 @@
         var nome = document.getElementById('nome').value;
         sessionStorage.setItem('nome', nome);
         window.location.href = '/frontend/screen/Home/home-pag.html';
+      });
+
+      document.getElementById('menu-toggle').addEventListener('click', function() {
+        var menu = document.getElementById('menu');
+        if (menu.style.display === 'flex') {
+          menu.style.display = 'none';
+        } else {
+          menu.style.display = 'flex';
+          menu.style.flexDirection = 'column';
+        }
       });
     </script>
 
