@@ -1,5 +1,6 @@
 const chatGeral = document.getElementById("chat-geral");
 const chatImage = document.getElementById("chat-image");
+const jogo__memoria = document.getElementById("chat-jogos");
 
 
 chatGeral.addEventListener('click', function (event) 
@@ -38,3 +39,25 @@ chatImage.addEventListener('click', function (event)
     }
   }
 
+  jogo__memoria.addEventListener('click', function(event) {
+
+    
+      event.preventDefault();
+      fetch('../jogo__memoria/jogo__memoria.html')
+        .then((response) => response.text())
+        .then((data) => {
+          document.getElementById("conteudo").innerHTML = data;
+          executeScriptInContent();
+        })
+        .catch((error) => {
+          console.error("Error:", error);
+        });
+    });
+
+  function executeScriptInContent() {
+    const scripts = document.getElementById("conteudo").getElementsByTagName("script");
+    for (let i = 0; i < scripts.length; i++) {
+      eval(scripts[i].innerText); // Avalia o conteúdo do script
+    }
+  }
+  

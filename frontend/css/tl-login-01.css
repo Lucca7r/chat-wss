@@ -56,6 +56,7 @@ main {
 }
 
 main > p {
+  font-family: "poppins";
   color: white;
   margin-top: 10px;
   font-size: 25px;
@@ -92,13 +93,14 @@ main > button:hover {
   width: 140px;
   height: 45px;
   color: #5a5d6d;
-  ont-family: "poppins";
+  font-family: "poppins";
   color: black;
   background: #d9d9d9;
   border: none;
   border-radius: 20px;
   border: solid 1px #5a5d6d;
   padding: 10px 20px;
+  cursor: pointer;
 }
 
 #nome {
