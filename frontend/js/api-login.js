@@ -10,3 +10,11 @@ const photoUser = document.getElementById("photo-user");
           let img = data.urls.regular;
           photoUser.innerHTML = `<img id="img_user" src="${img}" alt="user" />`;
         });
+
+        document.querySelector('.login_form').addEventListener('submit', function(event) {
+            event.preventDefault();
+            var nome = document.getElementById('nome').value;
+            sessionStorage.setItem('nome', nome);
+            window.location.href = '/frontend/screen/Home/home-pag.html';
+            console.log(nome);
+        });
