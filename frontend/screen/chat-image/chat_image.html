@@ -57,24 +57,18 @@
       const chatButton = document.querySelector(".chat_button");
       const chatMessages = document.querySelector(".chat_massage");
 
-      chatForm.addEventListener("submit", (e) => {    
-        e.preventDefault();
-      
+
+      chatForm.addEventListener("submit", function (event) {
+        event.preventDefault();
         const file = chatInputFile.files[0];
-        const formData = new FormData();
-        formData.append('image', file);
-      
-        fetch('/process-image', {
-          method: 'POST',
-          body: formData
-        })
-        .then(response => response.blob())
-        .then(blob => {
+        const reader = new FileReader();
+        reader.onload = function (e) {
           const img = document.createElement("img");
-          img.src = URL.createObjectURL(blob);
+          img.src = e.target.result;
+          img.classList.add("message_other");
           chatMessages.appendChild(img);
-        })
-        .catch(error => console.error('Error:', error));
+        };
+        reader.readAsDataURL(file);
       });
     </script>
     <script src="chat-image.js"></script>
