@@ -1,7 +1,7 @@
 const chatGeral = document.getElementById("chat-geral");
 const chatImage = document.getElementById("chat-image");
 const jogo__memoria = document.getElementById("chat-jogos");
-
+const nomeSpan = document.getElementById("nome_user");
 
 chatGeral.addEventListener('click', function (event) 
    {
@@ -60,4 +60,11 @@ chatImage.addEventListener('click', function (event)
       eval(scripts[i].innerText); // Avalia o conteúdo do script
     }
   }
-  
+
+  window.addEventListener("DOMContentLoaded", (event) => {
+    var nome = sessionStorage.getItem("nome");
+
+    nomeSpan.innerHTML = nome;
+
+    console.log(nome);
+  });

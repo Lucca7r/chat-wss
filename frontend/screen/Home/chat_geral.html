@@ -21,8 +21,8 @@
   </head>
 
   <body>
-   <section class="container">
-   <section class="chat">
+    <section class="container">
+      <section class="chat">
         <section class="chat_massage">
           <!--<<div class="message_you">ola mundo</div>
 
@@ -53,62 +53,70 @@
       const chatMessages = document.querySelector(".chat_massage");
 
       const colors = [
-    "cadetblue",
-    "darkgoldenrod",
-    "cornflowerblue",
-    "darkkhaki",
-    "hotpink",
-    "gold"]
-    
-    const getRandomColor = () => {
-    const randomIndex = Math.floor(Math.random() * colors.length)
-    return colors[randomIndex]
-}
+        "cadetblue",
+        "darkgoldenrod",
+        "cornflowerblue",
+        "darkkhaki",
+        "hotpink",
+        "gold",
+      ];
+
+      const getRandomColor = () => {
+        const randomIndex = Math.floor(Math.random() * colors.length);
+        return colors[randomIndex];
+      };
 
       let websocket;
 
-      const name = localStorage.getItem('nome');
-      
+      console.log(sessionStorage.getItem("nome")); 
+      const name = sessionStorage.getItem("nome");
+
       // Função para criar uma mensagem
-    const createMessageSelfElement = (content) => {
-    const div = document.createElement("div")
-    div.classList.add("message_you")
-    div.innerHTML=content
+      const createMessageSelfElement = (content) => {
+        const div = document.createElement("div");
+        div.classList.add("message_you");
+        div.innerHTML = content;
 
-    return div
-}
+        return div;
+      };
 
-const createMessageOtherElement = (content, sender, senderColor) => {
-    const div = document.createElement("div")
-    const span = document.createElement("span")
+      const createMessageOtherElement = (content, sender, senderColor) => {
+        const div = document.createElement("div");
+        const span = document.createElement("span");
 
-    div.classList.add("message_other")
-    span.classList.add("message_send")
-    span.style.color = senderColor
+        div.classList.add("message_other");
+        span.classList.add("message_send");
+        span.style.color = senderColor;
 
-    div.appendChild(span)
+        div.appendChild(span);
 
-    span.innerHTML = sender
+        span.innerHTML = sender;
 
-    div.innerHTML+=content
+        div.innerHTML += content;
 
-    return div
-}
+        return div;
+      };
 
-    
       // Função para processar a mensagem recebida
       const processMessage = ({ data }) => {
         const { userId, userName, userColor, content } = JSON.parse(data);
-        console.log(userName, content, name)
-        const message = userId == user.id ? createMessageSelfElement(content) : createMessageOtherElement(content, userName, userColor)
-        chatMessages.appendChild(message)
+        console.log(userId, userName, userColor, content);
+        const message =
+          userId == user.id
+            ? createMessageSelfElement(content)
+            : createMessageOtherElement(content, userName, userColor);
+        chatMessages.appendChild(message);
       };
 
-      const user = { id: crypto.randomUUID(), userName: name, color: getRandomColor()}
-    
+      const user = {
+        id: crypto.randomUUID(),
+        userName: name,
+        color: getRandomColor(),
+      };
+
       // Conectar ao WebSocket
       websocket = new WebSocket("ws://localhost:8080");
-    
+
       // Evento que ocorre quando a conexão é estabelecida
       websocket.addEventListener("open", (event) => {
         // Função para enviar mensagem
@@ -119,21 +127,20 @@ const createMessageOtherElement = (content, sender, senderColor) => {
             userId: user.id,
             userName: user.userName,
             userColor: user.color,
-            content: chatInput.value
-        }
+            content: chatInput.value,
+          };
 
           // Enviar mensagem para o servidor via WebSocket
           websocket.send(JSON.stringify(message));
           chatInput.value = ""; // Limpar campo de entrada
         };
-    
+
         // Adicionar evento de submit ao formulário
         chatForm.addEventListener("submit", enviarMensagem);
-    
+
         // Ouvir mensagens recebidas do servidor
         websocket.onmessage = processMessage;
       });
     </script>
-
   </body>
 </html>
