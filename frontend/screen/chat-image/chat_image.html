@@ -61,14 +61,22 @@
       chatForm.addEventListener("submit", function (event) {
         event.preventDefault();
         const file = chatInputFile.files[0];
-        const reader = new FileReader();
-        reader.onload = function (e) {
-          const img = document.createElement("img");
-          img.src = e.target.result;
-          img.classList.add("message_other");
-          chatMessages.appendChild(img);
-        };
-        reader.readAsDataURL(file);
+      
+        const formData = new FormData();
+        formData.append('image', file);
+      
+        fetch('/frontend/screen/Home/home-pag.html', {
+          method: 'POST',
+          body: formData
+        })
+        .then(response => response.blob())
+        .then(image => {
+          const imageElement = document.createElement('img');
+          const url = URL.createObjectURL(image);
+          imageElement.src = url;
+          document.body.appendChild(imageElement);
+        })
+        .catch(error => console.error('Error:', error));
       });
     </script>
     <script src="chat-image.js"></script>

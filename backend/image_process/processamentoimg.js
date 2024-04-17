@@ -10,7 +10,7 @@ app.use(cors());
 
 __dirname = path.resolve();
 
-app.post('/process', (req, res) => {
+app.post('/frontend/screen/Home/home-pag.html', (req, res) => {
   console.log('Request received');
   const file = req.files.image;
   const output = path.join(__dirname, 'output.jpg');
