@@ -1,81 +1,80 @@
 .playerMusica {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    width: 100%;
-    height: 100%;
-    color: #ddd;
-    font-family: 'Montserrat', sans-serif;
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  height: 100%;
+  color: #ddd;
+  font-family: "Montserrat", sans-serif;
 }
 
 .imagemMusica {
-    width: 300px;
-    height: 300px;
+  width: 300px;
+  height: 300px;
 }
 
 .descricao {
-    width: 300px;
-
+  width: 300px;
 }
 
 .Name_musica {
-    margin-bottom: 5px;
+  margin-bottom: 5px;
 }
 
 .duracao {
-    width: 300px;
-    margin-top: 25px;
-
+  width: 300px;
+  margin-top: 25px;
 }
 
 .barra {
-    width: 300px;
-    height: 6px;
-    border: 1px solid #eee;
-    border-radius: 5px;
-    display: flex;
-    align-items: center;
-    justify-content: flex-start;
+  width: 300px;
+  height: 6px;
+  border: 1px solid #eee;
+  border-radius: 5px;
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
 }
 
 .ponto {
-    width: 20px;
-    height: 20px;
-    background-color: #eee;
-    border-radius: 50%;
-    margin-left: -10px;
-    cursor: pointer;
+  width: 20px;
+  height: 20px;
+  background-color: #eee;
+  border-radius: 50%;
+  margin-left: -10px;
+  cursor: pointer;
 }
 
 .tempo {
-    margin-top: 8px;
-    display: flex;
-    width: 300px;
-    justify-content: space-between;
+  margin-top: 8px;
+  display: flex;
+  width: 300px;
+  justify-content: space-between;
 }
 
 .player {
-    width: 300px;
-    display: flex;
-    justify-content: space-around;
-    align-items: center;
-    margin-top: 15px;
+  width: 300px;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  margin-top: 15px;
 }
 
-.botao-play, .botao-pause {
-    font-size: 50px;
-    cursor: pointer;
- }
+.botao-play,
+.botao-pause {
+  font-size: 50px;
+  cursor: pointer;
+}
 
- .setas {
-    font-size: 40px;
-    cursor: pointer;
+.setas {
+  font-size: 40px;
+  cursor: pointer;
 }
 
 .botao-pause {
-    display: none;
+  display: none;
 }

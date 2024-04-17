@@ -1,176 +1,141 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    
-    <link rel="stylesheet" href="/frontend/css/game.css">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
-    
+    <link rel="stylesheet" href="/frontend/css/game.css" />
 
-
-    
-<title>Memory Game</title>
-</head>
-<body>
-    
+    <title>Memory Game</title>
+  </head>
+  <body>
     <main>
-        <header>
-            <span class ="player">
-              
-            </span>
-            <span>Tempo: <span class="timer">
-                00
-            </span>
-        </span>
-        </header>
-    
+      <header>
+        <span class="player"> </span>
+        <span>Tempo: <span class="timer"> 00 </span> </span>
+      </header>
 
-<div class="grid">
+      <div class="grid"></div>
+    </main>
 
-    
+    <script>
+      const grid = document.querySelector(".grid");
+      const spanPlayer = document.querySelector(".player");
+      const timer = document.querySelector(".timer");
 
-</div>
+      const characters = [
+        "beth",
+        "jerry",
+        "jessica",
+        "morty",
+        "pessoa-passaro",
+        "pickle-rick",
+        "rick",
+        "summer",
+        "meeseeks",
+        "scroopy",
+      ];
 
-</main>
+      createElement = (tag, className) => {
+        const element = document.createElement(tag);
+        element.className = className;
+        return element;
+      };
 
-<script>
-const grid = document.querySelector('.grid')
-const spanPlayer = document.querySelector('.player')
-const timer = document.querySelector('.timer')
+      let firstCard = "";
+      let secondCard = "";
 
-const characters = [
-  'beth',
-  'jerry',
-  'jessica',
-  'morty',
-  'pessoa-passaro',
-  'pickle-rick',
-  'rick',
-  'summer',
-  'meeseeks',
-  'scroopy',
-]
+      const checkEndGame = () => {
+        const disabledCards = document.querySelectorAll(".disabled-card");
 
-createElement = (tag, className) => {
+        if (disabledCards.length === 20) {
+          clearInterval(this.loop);
+          alert(
+            `Parabéns, ${spanPlayer.innerHTML}! Seu tempo foi: ${timer.innerHTML} segundos.`
+          );
+        }
+      };
 
-const element = document.createElement(tag)
-element.className = className 
-return element;
+      const checkCards = () => {
+        const firstCharacter = firstCard.getAttribute("data-character");
+        const secondCharacter = secondCard.getAttribute("data-character");
 
-}
+        if (firstCharacter === secondCharacter) {
+          firstCard.firstChild.classList.add("disabled-card");
+          secondCard.firstChild.classList.add("disabled-card");
 
-let firstCard = '';
-let secondCard = '';
+          firstCard = "";
+          secondCard = "";
 
-const checkEndGame = () => {
-    const disabledCards = document.querySelectorAll('.disabled-card')
+          setTimeout(checkEndGame, 500);
+        } else {
+          setTimeout(() => {
+            firstCard.classList.remove("reveal-card");
+            secondCard.classList.remove("reveal-card");
 
-    if (disabledCards.length === 20){
-    clearInterval(this.loop)
-    alert(`Parabéns, ${spanPlayer.innerHTML}! Seu tempo foi: ${timer.innerHTML} segundos.`) }
-}
+            firstCard = "";
+            secondCard = "";
+          }, 500);
+        }
+      };
 
-const checkCards = () => {
+      const revealCard = ({ target }) => {
+        if (target.parentNode.className.includes("reveal-card")) {
+          return;
+        }
 
-const firstCharacter = firstCard.getAttribute('data-character')
-const secondCharacter = secondCard.getAttribute('data-character')
+        if (firstCard === "") {
+          target.parentNode.classList.add("reveal-card");
+          firstCard = target.parentNode;
+        } else if (secondCard === "") {
+          target.parentNode.classList.add("reveal-card");
+          secondCard = target.parentNode;
 
-if (firstCharacter === secondCharacter) {
-    firstCard.firstChild.classList.add('disabled-card')
-    secondCard.firstChild.classList.add('disabled-card')
+          checkCards();
+        }
+      };
 
-    firstCard = ''
-    secondCard = ''
-    
-    setTimeout(checkEndGame, 500)
+      const createCard = (character) => {
+        const card = createElement("div", "card");
+        const front = createElement("div", "face front");
+        const back = createElement("div", "face back");
 
-} else {
+        front.style.backgroundImage = `url('/frontend/screen/jogo__memoria/assets/${character}.png')`;
 
-    setTimeout(() => {
-    firstCard.classList.remove('reveal-card')
-    secondCard.classList.remove('reveal-card')
+        card.appendChild(front);
+        card.appendChild(back);
 
-    firstCard = ''
-    secondCard = ''
+        card.addEventListener("click", revealCard);
+        card.setAttribute("data-character", character);
 
+        return card;
+      };
 
-    }, 500)
-}
+      const loadGame = () => {
+        const duplicateCharacters = [...characters, ...characters];
 
-}
+        const shuffledArray = duplicateCharacters.sort(
+          () => Math.random() - 0.5
+        );
 
-const revealCard = ({ target }) => {
+        shuffledArray.forEach((character) => {
+          const card = createCard(character);
+          grid.appendChild(card);
+        });
+      };
 
-    if (target.parentNode.className.includes('reveal-card'))
-    {
-        return;
-    }
+      const startTimer = () => {
+        this.loop = setInterval(() => {
+          const currentTime = +timer.innerHTML;
+          timer.innerHTML = currentTime + 1;
+        }, 1000);
+      };
 
-    if (firstCard === '') {
-        target.parentNode.classList.add('reveal-card')
-        firstCard = target.parentNode
-    } else if (secondCard === '') {
-        target.parentNode.classList.add('reveal-card')
-        secondCard = target.parentNode
-
-        checkCards()
-    }
-
-   
-}
-
-const createCard = (character) => {
-
-    const card = createElement('div','card')
-    const front = createElement('div','face front')
-    const back = createElement('div','face back')
-
-    front.style.backgroundImage = `url('/frontend/screen/jogo__memoria/assets/${character}.png')`
-
-    card.appendChild(front)
-    card.appendChild(back)
-
-    card.addEventListener('click', revealCard)
-    card.setAttribute('data-character', character)
-
-   return card;
-
-}
-
-const loadGame = () => {
-
-    const duplicateCharacters = [... characters, ... characters]
-
-    const shuffledArray = duplicateCharacters.sort( () => Math.random () -0.5)
-
-    shuffledArray.forEach((character) => {
-        
-        const card = createCard(character)
-        grid.appendChild(card)
-
-    })
-
-}
-
-const startTimer = () => {
-    this.loop = setInterval(() => {
-        
-      const currentTime = +timer.innerHTML;
-      timer.innerHTML = currentTime + 1;
-}, 1000)
-}
-
-
-window.onload = () => {
-    
-    spanPlayer.innerHTML = localStorage.getItem('player')
-    startTimer()
-    loadGame()
-}
-
-
-</script>
-
-</body>
+      window.onload = () => {
+        spanPlayer.innerHTML = localStorage.getItem("player");
+        startTimer();
+        loadGame();
+      };
+    </script>
+  </body>
 </html>
