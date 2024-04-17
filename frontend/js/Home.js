@@ -55,9 +55,9 @@ jogo__memoria.addEventListener("click", function (event) {
     });
 });
 
-/*player_musica.addEventListener("click", function (event) {
+player_musica.addEventListener('click', function(event) {
   event.preventDefault();
-  fetch("../player_musica/player_musica.html")
+  fetch('../player_musica/player_musica.html')
     .then((response) => response.text())
     .then((data) => {
       document.getElementById("conteudo").innerHTML = data;
@@ -67,11 +67,9 @@ jogo__memoria.addEventListener("click", function (event) {
       console.error("Error:", error);
     });
 });
-*/
+
 function executeScriptInContent() {
-  const scripts = document
-    .getElementById("conteudo")
-    .getElementsByTagName("script");
+  const scripts = document.getElementById("conteudo").getElementsByTagName("script");
   for (let i = 0; i < scripts.length; i++) {
     eval(scripts[i].innerText); // Avalia o conteúdo do script
   }
@@ -82,5 +80,5 @@ window.addEventListener("DOMContentLoaded", (event) => {
 
   nomeSpan.innerHTML = nome;
 
-  console.log(nome);
-});
+    console.log(nome);
+  });
