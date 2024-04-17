@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css" integrity="sha384-AYmEC3Yw5cVb3ZcuHtOA93w35dYTsvhLPVnYs9eStHfGJvOvKxVfELGroGkvsg+p" crossorigin="anonymous"/>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="/frontend/css/player_musica.css">
+   
+    
+    <title>Player de música</title>
+</head>
+<body>
+    <div class="playerMusica">
+    <img class="imagemMusica" src="/frontend/screen/player_musica/musicas/AC-DC - Back In Black.mp3" alt="Imagem da música">
+    <div class="descricao">
+        <h2 class="Name_musica">Back in Black</h2>
+        <i>
+            AC/DC
+        </i>
+    </div>
+
+    <div class="duracao">
+        <div class="barra">
+            <progress value="0" max="1"></progress>
+            <div class="ponto"></div>
+        </div>
+        <div class="tempo">
+            <p class="inicio">
+                0:00
+            </p>
+            <p class="fim">
+                3:12
+            </p>
+        </div>
+    </div>
+
+    <div class="player">
+        <i class="fas fa-step-backward setas anterior"></i>
+        <i class="fas fa-play-circle botao-play"></i>
+        <i class="fas fa-pause-circle botao-pause"></i>
+        <i class="fas fa-step-forward setas proximo"></i>
+    </div>
+    <audio src="">
+
+    </audio>
+
+</div>
+
+<style>
+    progress {
+    height: 6px;
+    width: 0%;
+    background-color: #333;
+    }
+</style>
+
+    <script>
+
+    let musicas = [
+    {titulo:'Back in Black', artista: 'AC/DC', src:'/frontend/screen/player_musica/musicas/AC-DC - Back In Black.mp3', img:"/frontend/screen/player_musica/imagens/Back in black.jpg"}, 
+    {titulo:'Billie Jean', artista: 'Michael Jackson', src:'/frontend/screen/player_musica/musicas/Michael Jackson - Billie Jean (Official Audio).mp3', img:'/frontend/screen/player_musica/imagens/Billie Jean.png'}, 
+    {titulo:'Die for You', artista: 'The Weekend & Ariana Grande', src:'/frontend/screen/player_musica/musicas/The Weeknd, Ariana Grande - Die For You (Remix _ Lyric Video).mp3', img:'/frontend/screen/player_musica/imagens/Die for you.png'}
+]
+
+
+
+let musica = document.querySelector('audio')
+let musicaIndex = 0
+let nomeMusica = document.querySelector('.descricao h2')
+let nomeArtista = document.querySelector('.descricao i')
+let imagem = document.querySelector('.imagemMusica')
+let duracaoMusica = document.querySelector('.tempo .fim')
+
+renderizarMusica(musicaIndex)
+
+
+
+document.querySelector('.botao-play').addEventListener('click', tocarMusica)
+document.querySelector('.botao-pause').addEventListener('click', pausarMusica)
+
+musica.addEventListener('timeupdate', atualizarBarra)
+
+document.querySelector('.anterior').addEventListener('click', () => {
+    musicaIndex--;
+    if(musicaIndex < 0) {
+        musicaIndex=0
+    }
+    renderizarMusica(musicaIndex);
+    tocarMusica()
+})
+
+document.querySelector('.proximo').addEventListener('click', () => {
+    musicaIndex++;
+    if(musicaIndex > 2)
+    {
+        musicaIndex = 2
+    }
+    renderizarMusica(musicaIndex);
+    tocarMusica()
+})
+
+
+function renderizarMusica(musicaIndex) {
+    musica.setAttribute('src', musicas[musicaIndex].src)
+    musica.addEventListener('loadeddata', () => {
+        nomeMusica.textContent = musicas[musicaIndex].titulo
+        nomeArtista.textContent = musicas[musicaIndex].artista
+        imagem.src = musicas[musicaIndex].img
+        duracaoMusica.textContent= segundosParaMinutos(Math.floor(musica.duration))
+    })
+    
+    
+}
+
+function tocarMusica() {
+    musica.play()
+    document.querySelector('.botao-pause').style.display = 'block'
+    document.querySelector('.botao-play').style.display = 'none'
+
+}
+
+function pausarMusica() {
+    musica.pause()
+    document.querySelector('.botao-play').style.display = 'block'
+    document.querySelector('.botao-pause').style.display = 'none'
+
+}
+
+function atualizarBarra() {
+    let barra = document.querySelector('progress')
+    barra.style.width = Math.floor((musica.currentTime / musica.duration) * 100) + '%'
+    let tempoDecorrido = document.querySelector('.inicio')
+    tempoDecorrido.textContent = segundosParaMinutos(Math.floor(musica.currentTime))
+}
+
+function segundosParaMinutos(segundos) {
+    let campoMinutos = Math.floor(segundos/60)
+    let campoSegundos = segundos % 60
+    if (campoSegundos<10){
+        campoSegundos = '0' + campoSegundos
+    }
+
+    return campoMinutos+ ':' +campoSegundos
+}
+
+
+    </script>
+</body>
+</html>
