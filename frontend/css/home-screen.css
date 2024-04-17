@@ -69,8 +69,7 @@ header {
 
 nav {
     border-right: solid 1px #5a5d6d;
-    width: 400px;
-    /* height: 100vh; */
+    width: 400px; 
     color: white;
     display: flex;
     flex-direction: column;
