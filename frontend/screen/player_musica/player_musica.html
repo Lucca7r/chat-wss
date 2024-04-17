@@ -7,14 +7,16 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Montserrat&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="/frontend/css/player_musica.css">
    
     
     <title>Player de música</title>
 </head>
 <body>
-    <img id="imagemMusica" src="/frontend/screen/player_musica/musicas/AC-DC - Back In Black.mp3" alt="Imagem da música">
+    <div class="playerMusica">
+    <img class="imagemMusica" src="/frontend/screen/player_musica/musicas/AC-DC - Back In Black.mp3" alt="Imagem da música">
     <div class="descricao">
-        <h2>Back in Black</h2>
+        <h2 class="Name_musica">Back in Black</h2>
         <i>
             AC/DC
         </i>
@@ -45,6 +47,16 @@
 
     </audio>
 
+</div>
+
+<style>
+    progress {
+    height: 6px;
+    width: 50%;
+    background-color: #333;
+    }
+</style>
+
     <script>
 
     let musicas = [
@@ -59,7 +71,7 @@ let musica = document.querySelector('audio')
 let musicaIndex = 0
 let nomeMusica = document.querySelector('.descricao h2')
 let nomeArtista = document.querySelector('.descricao i')
-let imagem = document.querySelector('img')
+let imagem = document.querySelector('.imagemMusica')
 let duracaoMusica = document.querySelector('.tempo .fim')
 
 renderizarMusica(musicaIndex)
