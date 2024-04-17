@@ -40,6 +40,13 @@ header {
     gap: 10px;
 }
 
+#img_user{
+    width: 60px;
+    height: 60px;
+    border-radius: 20%;
+    border: solid 1px #5a5d6d;
+}
+
 #buscador {
     font-family: "poppins";
     color: white;

@@ -27,7 +27,7 @@
       <span id="photo-user">
         <img src="assets/foto-perfil.svg" alt="user" />
       </span>
-      <p>Nome de Usúario</p>
+      <p id="label-name">Nome de Usúario</p>
       <form class="login_form" action="/frontend/screen/Home/home-pag.html">
         <input
           type="text"
@@ -35,23 +35,11 @@
           name="nome"
           placeholder="Escreva um nome"
         />
-        <input type="submit" id="login_button" value="Entrar" >
-
-
-        
+        <input type="submit" id="login_button" value="Entrar" />
       </form>
     </main>
 
-    <script>
-      document.querySelector('.login_form').addEventListener('submit', function(event) {
-        event.preventDefault();
-        var nome = document.getElementById('nome').value;
-        sessionStorage.setItem('nome', nome);
-        window.location.href = '/frontend/screen/Home/home-pag.html';
-      });
-    </script>
-
-    <script src="/frontend/js/color.js"></script>
+    <script src="frontend/js/api-login.js"></script>
     <script src="/frontend/js/Home.js"></script>
   </body>
 </html>
