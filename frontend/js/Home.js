@@ -4,15 +4,14 @@ const jogo__memoria = document.getElementById("chat-jogos");
 const nomeSpan = document.getElementById("nome_user");
 const player_musica = document.getElementById("player_musica");
 
-const photoUser = document.getElementById("testeimg");
+const photoUser = document.getElementById("img-user");
 
 let id = "vFrH132ECKUv6ZMMAlavcCLxGpV5BNWKZ08GaSy8ahg";
-let url = `https://api.unsplash.com/photos/random?client_id=${id}&query=space`;
+let url = `https://api.unsplash.com/photos/random?client_id=${id}&query=animals`;
 
 fetch(url)
   .then((response) => response.json())
   .then((data) => {
-    console.log(data);
     let img = data.urls.regular;
     photoUser.innerHTML = `<img id="img_user" src="${img}" alt="user" />`;
   });
