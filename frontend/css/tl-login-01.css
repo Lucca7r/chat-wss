@@ -14,7 +14,7 @@ body {
 .bg-custom {
 	background-color: #171820;
 	font-family: 'Poppins';
-  }
+}
 
 /* login page  */
 
@@ -41,13 +41,13 @@ header {
 	font-weight: bold;
 }
 
-nav > a {
+nav>a {
 	margin: 10px;
 	color: white;
 	text-decoration: none;
 }
 
-nav > a:hover {
+nav>a:hover {
 	color: #5a5d6d;
 }
 
@@ -59,10 +59,10 @@ main {
 }
 
 .b-w-h {
-  width: 140px;
-  height: 155px;
-  font-family: "poppins";
- 
+	width: 140px;
+	height: 155px;
+	font-family: "poppins";
+
 }
 
 /* #nome {
@@ -89,10 +89,59 @@ main {
 #img_user {
 	width: 383px;
 	height: 383px;
-  
+
 	border-radius: 30%;
-  }
+}
+
 #btn-light {
 	width: 30px;
 	height: 30px;
+}
+
+#menu-toggle {
+	display: none;
+}
+
+nav {
+	display: flex;
+}
+
+@media screen and (max-width: 425px) {
+	#logo_chat img {
+		width: 35%;
+	}
+
+	#menu-toggle {
+		display: block;
+		background-color: transparent;
+		border: none;
+	}
+
+	nav {
+		display: none;
+		flex-direction: column;
+	}
+
+	nav a {
+		padding: 10px;
+		text-align: center;
+	}
+
+	#menu-toggle span {
+		display: block;
+		width: 25px;
+		height: 3px;
+		margin: 5px 0;
+		background-color: #fff;
+		border-radius: 20px;
+	}
+
+	nav {
+		position: absolute;
+		align-items: flex-end;
+		top: 70px;
+		right: 0;
+		padding: 10px;
+		background-color: #171820;
+	}
 }
