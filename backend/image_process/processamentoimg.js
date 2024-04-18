@@ -3,7 +3,6 @@ const sharp = require("sharp");
 const fs = require("fs");
 const path = require("path");
 const cors = require("cors");
-const http = require("http");
 const app = express();
 
 const fileUpload = require("express-fileupload");
