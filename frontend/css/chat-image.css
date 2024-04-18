@@ -42,11 +42,11 @@ section.chat_massage {
   justify-content: flex-end;
 }
 
-#chat_form {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  gap: 10px;
+#chat_form_img {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
 }
 
 .chat_input {
