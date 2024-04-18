@@ -44,7 +44,7 @@ section.chat_massage {
     justify-content: flex-end;
 }
 
-#chat_form {
+#chat_form_img {
     display: flex;
     align-items: center;
     justify-content: center;
