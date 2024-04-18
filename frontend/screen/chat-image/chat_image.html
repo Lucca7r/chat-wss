@@ -30,8 +30,24 @@
             <span class="message_send">lucca</span>
             ola, mundo.
           </div>-->
+
+          <div class="message_you">
+            <!--
+
+              <img
+              src="/gandalf.jpeg"
+              id="img_send"
+              alt="Avatar"
+              style="width: 100%"
+              />
+            -->
+          </div>
         </section>
-        <form id="chat_form_img">
+        <form
+          id="chat_form_img"
+          method="post"
+          action="/frontend/screen/Home/home-pag.html"
+        >
           <div class="file-upload">
             <label for="file-upload-input" class="file-upload-label">
               Clique aqui para fazer upload
@@ -56,29 +72,29 @@
       const chatInput = document.querySelector(".chat_input");
       const chatButton = document.querySelector(".chat_button");
       const chatMessages = document.querySelector(".chat_massage");
-
+      const chatMessageYou = document.querySelector(".message_you");
 
       chatForm.addEventListener("submit", function (event) {
         event.preventDefault();
         const file = chatInputFile.files[0];
-      
+
         const formData = new FormData();
-        formData.append('image', file);
-      
-        fetch('/frontend/screen/Home/home-pag.html', {
-          method: 'POST',
-          body: formData
+        formData.append("image", file);
+
+        fetch("http://localhost:5502/home-pag", {
+          method: "POST",
+          body: formData,
         })
-        .then(response => response.blob())
-        .then(image => {
-          const imageElement = document.createElement('img');
-          const url = URL.createObjectURL(image);
-          imageElement.src = url;
-          document.body.appendChild(imageElement);
-        })
-        .catch(error => console.error('Error:', error));
+          .then((response) => response.blob())
+          .then((image) => {
+            const url = URL.createObjectURL(image);
+            const img = document.createElement("img");
+            img.src = url;
+            img.style.width = "100%";
+            chatMessageYou.appendChild(img);
+          })
+          .catch((error) => console.error("Error:", error));
       });
     </script>
-    <script src="chat-image.js"></script>
   </body>
 </html>
