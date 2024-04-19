@@ -16,10 +16,14 @@ app.get("/", (req, res) => {
   res.sendFile(path.resolve("C:/Users/adm/Documents/chat-wss/login.html"));
 });
 
+const now = require("performance-now");
+
 app.post("/home-pag", (req, res) => {
   console.log("Request received");
   const file = req.files.image;
   const output = path.join(__dirname, "output.jpg");
+
+  let start = now();
 
   sharp(file.data)
     .greyscale()
@@ -28,6 +32,8 @@ app.post("/home-pag", (req, res) => {
         console.error(err);
         res.status(500).send("Image processing failed.");
       } else {
+        let end = now();
+        console.log(`Processing time: ${(end - start).toFixed(3)} ms`);
         res.sendFile(output);
       }
     });
