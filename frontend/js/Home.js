@@ -87,5 +87,5 @@ window.addEventListener("DOMContentLoaded", (event) => {
 });
 
 document.addEventListener("DOMContentLoaded", function () {
-  M.toast({ html: "bem vindo ao super chat", classes: "rounded" });
+  M.toast({ html: "bem vindo ao super chat 👾📸", classes: "rounded" });
 });

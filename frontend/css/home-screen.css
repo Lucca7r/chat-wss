@@ -148,7 +148,8 @@ a {
   color: white;
   border-radius: 10px;
   padding: 10px;
-
+  font-family: "poppins";
+  font-weight: bold;
   /* Adicione as seguintes linhas */
   position: absolute  ;
   right: 0;
