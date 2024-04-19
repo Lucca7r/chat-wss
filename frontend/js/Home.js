@@ -1,3 +1,4 @@
+//import '../css/home-screen.css';
 const chatGeral = document.getElementById("chat-geral");
 const chatImage = document.getElementById("chat-image");
 const jogo__memoria = document.getElementById("chat-jogos");
@@ -83,4 +84,8 @@ window.addEventListener("DOMContentLoaded", (event) => {
   nomeSpan.innerHTML = nome;
 
   console.log(nome);
+});
+
+document.addEventListener("DOMContentLoaded", function () {
+  M.toast({ html: "bem vindo ao super chat", classes: "rounded" });
 });
