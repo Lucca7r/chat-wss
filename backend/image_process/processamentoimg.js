@@ -1,9 +1,9 @@
+const { Worker } = require('worker_threads');
 const express = require("express");
 const sharp = require("sharp");
-const fs = require("fs");
 const path = require("path");
-const cors = require("cors");
 const app = express();
+const now = require("performance-now");
 
 const fileUpload = require("express-fileupload");
 app.use(fileUpload());
@@ -16,8 +16,6 @@ app.get("/", (req, res) => {
   res.sendFile(path.resolve("C:/Users/adm/Documents/chat-wss/login.html"));
 });
 
-const now = require("performance-now");
-
 app.post("/home-pag", (req, res) => {
   console.log("Request received");
   const file = req.files.image;
@@ -25,19 +23,32 @@ app.post("/home-pag", (req, res) => {
 
   let start = now();
 
-  sharp(file.data)
-    .greyscale()
-    .toFile(output, (err) => {
-      if (err) {
-        console.error(err);
-        res.status(500).send("Image processing failed.");
-      } else {
-        let end = now();
-        console.log(`Processing time: ${(end - start).toFixed(3)} ms`);
-        res.sendFile(output);
-      }
-    });
+  const worker = new Worker("C:/Users/adm/Documents/chat-wss/backend/image_process/imageProcessingWorker.js", {
+    workerData: {
+      fileData: file.data,
+      output,
+    },
+  });
+
+  worker.on("message", (err) => {
+    if (err) {
+      console.error(err);
+      res.status(500).send("Image processing failed.");
+    } else {
+      let end = now();
+      console.log(`Processing time: ${(end - start).toFixed(3)} ms`);
+      res.sendFile(output);
+    }
+  });
+
+  worker.on("error", (err) => {
+    console.error(err);
+    res.status(500).send("Image processing failed.");
+  });
 });
+
+
+
 app.listen(5502, () => {
   console.log("Server is running on port 5502");
 });
