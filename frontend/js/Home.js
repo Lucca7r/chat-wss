@@ -4,6 +4,7 @@ const chatImage = document.getElementById("chat-image");
 const jogo__memoria = document.getElementById("chat-jogos");
 const nomeSpan = document.getElementById("nome_user");
 const player_musica = document.getElementById("player_musica");
+const calculadora = document.getElementById("calculadora");
 
 const photoUser = document.getElementById("img-user");
 
@@ -69,6 +70,19 @@ player_musica.addEventListener("click", function (event) {
     });
 });
 
+calculadora.addEventListener("click", function (event) {
+  event.preventDefault();
+  fetch("../calculadora/calculadora.html")
+    .then((response) => response.text())
+    .then((data) => {
+      document.getElementById("conteudo").innerHTML = data;
+      executeScriptInContent2();
+    })
+    .catch((error) => {
+      console.error("Error:", error);
+    });
+});
+
 function executeScriptInContent() {
   const scripts = document
     .getElementById("conteudo")
@@ -77,6 +91,16 @@ function executeScriptInContent() {
     eval(scripts[i].innerText); // Avalia o conteúdo do script
   }
 }
+
+function executeScriptInContent2(data) {
+  const scripts = document.getElementById("conteudo").getElementsByTagName("script");
+  for (let i = 0; i < scripts.length; i++) {
+    const script = document.createElement("script");
+    script.text = scripts[i].innerText;
+    document.body.appendChild(script).parentNode.removeChild(script);
+  }
+}
+
 
 window.addEventListener("DOMContentLoaded", (event) => {
   var nome = sessionStorage.getItem("nome");
