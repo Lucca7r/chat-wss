@@ -16,8 +16,13 @@ fetch(url)
 		photoUser.innerHTML = `<img id="img_user" src="${img}" alt="user" />`;
 	});
 
+	document.addEventListener('DOMContentLoaded', function() {
+        chatGeral.click();
+    });
+
 chatGeral.addEventListener("click", function (event) {
 	event.preventDefault();
+	toggleMenu();
 	fetch("chat_geral.html")
 		.then((response) => response.text())
 		.then((data) => {
@@ -31,6 +36,7 @@ chatGeral.addEventListener("click", function (event) {
 
 chatImage.addEventListener("click", function (event) {
 	event.preventDefault();
+	toggleMenu();
 	fetch("../chat-image/chat_image.html")
 		.then((response) => response.text())
 		.then((data) => {
@@ -44,6 +50,7 @@ chatImage.addEventListener("click", function (event) {
 
 jogo__memoria.addEventListener("click", function (event) {
 	event.preventDefault();
+	toggleMenu();
 	fetch("../jogo__memoria/jogo__memoria.html")
 		.then((response) => response.text())
 		.then((data) => {
@@ -57,6 +64,7 @@ jogo__memoria.addEventListener("click", function (event) {
 
 player_musica.addEventListener("click", function (event) {
 	event.preventDefault();
+	toggleMenu();
 	fetch("../player_musica/player_musica.html")
 		.then((response) => response.text())
 		.then((data) => {
@@ -85,12 +93,32 @@ window.addEventListener("DOMContentLoaded", (event) => {
 	console.log(nome);
 });
 
+function toggleMenu() {
+    var menu = document.getElementById('menu');
+    var conteudo = document.getElementById('conteudo');
+    var screenWidth = window.innerWidth; // Get the current screen width
+
+    if (screenWidth <= 425) { // Check if the screen width is 425 pixels or less
+        if (menu.style.display === 'flex') {
+            menu.style.display = 'none';
+            conteudo.style.display = 'flex';
+        } else {
+            menu.style.display = 'flex';
+            menu.style.flexDirection = 'column';
+            conteudo.style.display = 'none';
+        }
+    }
+}
+
 document.getElementById('menu-toggle').addEventListener('click', function () {
 	var menu = document.getElementById('menu');
+	var conteudo = document.getElementById('conteudo');
 	if (menu.style.display === 'flex') {
 		menu.style.display = 'none';
+		conteudo.style.display = 'flex';
 	} else {
 		menu.style.display = 'flex';
 		menu.style.flexDirection = 'column';
+		conteudo.style.display = 'none';
 	}
 });
