@@ -18,9 +18,7 @@ fetch(url)
 		photoUser.innerHTML = `<img id="img_user" src="${img}" alt="user" />`;
 	});
 
-	document.addEventListener('DOMContentLoaded', function() {
-        chatGeral.click();
-    });
+
 
 chatGeral.addEventListener("click", function (event) {
 	event.preventDefault();
@@ -147,3 +145,7 @@ document.getElementById('menu-toggle').addEventListener('click', function () {
 		conteudo.style.display = 'none';
 	}
 });
+
+document.addEventListener("DOMContentLoaded", function () {
+	M.toast({ html: "bem vindo ao super chat 👾📸", classes: "rounded" });
+  });
