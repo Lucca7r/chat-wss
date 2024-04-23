@@ -10,11 +10,20 @@
     />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="stylesheet" href="/frontend/css/home-screen.css" />
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+    <link rel="stylesheet" href="/frontend/css/home-screen.css" />
+    <link rel="icon" type="image/png" sizes="16x16"  href="./assets/chatbalao.png">
     <title>HOME</title>
   </head>
 
   <body>
     <header>
+      <button id="menu-toggle" aria-label="Menu" aria-controls="menu">
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
       <div id="logo_chat">
         <img src="./assets/chatbalao.png" alt="logo" />
         <h1>Chat</h1>
@@ -29,7 +38,7 @@
     </header>
 
     <div id="pagina">
-      <nav>
+      <nav id="menu">
         <div id="busca">
           <div class="search-container">
             <input type="text" id="buscador" placeholder="Buscar..." />
@@ -69,7 +78,7 @@
             </span>
             <p>Imagem</p>
           </a>
-          <a href="#">
+          <a href="#" id="calculadora">
             <span class="icons">
               <img src="./assets/controle.svg" alt="user" />
             </span>

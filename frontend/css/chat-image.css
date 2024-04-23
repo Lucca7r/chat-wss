@@ -20,7 +20,7 @@ section.chat_massage {
 }
 
 .container {
-  width: 80%;
+  width: 100%;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -117,9 +117,13 @@ section.chat_massage {
 }
 
 .file-upload-label {
-  padding: 10px 20px;
-  background-color: #4caf50;
-  color: white;
+  border: none;
+  outline: none;
+  padding: 5px 10px;
+  border-radius: 10px;
+  background-color: #d9d9d9;
+  color: black;
+  font-weight: 600;
   cursor: pointer;
 }
 
@@ -130,3 +134,4 @@ section.chat_massage {
   opacity: 0;
   cursor: pointer;
 }
+

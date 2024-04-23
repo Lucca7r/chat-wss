@@ -57,6 +57,8 @@
               type="file"
               class="file-upload-input"
               hidden
+              accept="image/*"
+              multiple
             />
           </div>
           <button type="submit" class="chat_button">
@@ -79,8 +81,9 @@
         const file = chatInputFile.files[0];
 
         const formData = new FormData();
-        formData.append("image", file);
-
+        for (let i = 0; i < files.length; i++) {
+          formData.append("image", files[i]);
+        }
         fetch("http://localhost:5502/home-pag", {
           method: "POST",
           body: formData,
@@ -88,10 +91,12 @@
           .then((response) => response.blob())
           .then((image) => {
             const url = URL.createObjectURL(image);
-            const img = document.createElement("img");
-            img.src = url;
-            img.style.width = "100%";
-            chatMessageYou.appendChild(img);
+            for (let i = 0; i < files.length; i++) {
+              const img = document.createElement("img");
+              img.src = url;
+              img.style.width = "100%";
+              chatMessageYou.appendChild(img);
+            }
           })
           .catch((error) => console.error("Error:", error));
       });

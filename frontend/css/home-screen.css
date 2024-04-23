@@ -71,9 +71,9 @@ nav {
   border-right: solid 1px #5a5d6d;
   width: 400px;
   color: white;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
+  display: flex; !important;
+  flex-direction: column; !important;
+  align-items: center;  !important;
 }
 
 #chats > h2 {
@@ -139,4 +139,58 @@ a {
 
 .search-container {
   position: relative;
+}
+
+#menu-toggle {
+	display: none;
+}
+
+.rounded {
+  width: 200px;
+  background-color: #333;
+  color: white;
+  border-radius: 10px;
+  padding: 10px;
+  font-family: "poppins";
+  font-weight: bold;
+  /* Adicione as seguintes linhas */
+  position: absolute  ;
+  right: 0;
+  margin-top: 110px;
+}
+
+@media screen and (max-width: 530px) {
+	#logo_chat img {
+		width: 35%;
+	}
+	
+	#menu-toggle {
+		display: block;
+		background-color: transparent;
+		border: none;
+	}
+
+	nav {
+		display: none;
+		flex-direction: column;
+	}
+
+	nav a {
+		padding: 10px;
+		text-align: center;
+	}
+
+	#menu-toggle span {
+		display: block;
+		width: 25px;
+		height: 3px;
+		margin: 5px 0;
+		background-color: #fff;
+		border-radius: 20px;
+	}
+
+	#conteudo {
+		height: 80vh;
+	}
+
 }
