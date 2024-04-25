@@ -11,6 +11,7 @@ app.use(fileUpload());
 __dirname = path.resolve();
 
 app.use(express.static("C:/Users/adm/Documents/chat-wss"));
+app.use('/output', express.static(path.join(__dirname, 'output')));
 
 app.get("/", (req, res) => {
   res.sendFile(path.resolve("C:/Users/adm/Documents/chat-wss/login.html"));
@@ -39,7 +40,8 @@ app.post("/home-pag", (req, res) => {
     .then(() => {
       let end = now();
       console.log(`Processing time: ${(end - start).toFixed(3)} ms`);
-      res.sendFile(path.join(outputDir, 'output0.jpg'));
+      // Enviar um array de URLs para as imagens processadas
+      res.json(files.map((_, index) => `http://localhost:5502/output/output${index}.jpg`));
     })
     .catch((err) => {
       console.error(err);

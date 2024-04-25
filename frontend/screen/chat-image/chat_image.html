@@ -89,13 +89,14 @@
           method: "POST",
           body: formData,
         })
-          .then((response) => response.blob())
-          .then((image) => {
-            const url = URL.createObjectURL(image);
-            const img = document.createElement("img");
-            img.src = url;
-            img.style.width = "100%";
-            chatMessageYou.appendChild(img);
+          .then((response) => response.json())
+          .then((urls) => {
+            for (const url of urls) {
+              const img = document.createElement("img");
+              img.src = url;
+              img.style.width = "100%";
+              chatMessageYou.appendChild(img);
+            }
           })
           .catch((error) => console.error("Error:", error));
       });
