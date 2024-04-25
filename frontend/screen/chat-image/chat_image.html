@@ -44,6 +44,7 @@
           </div>
         </section>
         <form
+          enctype="multipart/form-data"
           id="chat_form_img"
           method="post"
           action="/frontend/screen/Home/home-pag.html"
@@ -57,6 +58,7 @@
               type="file"
               class="file-upload-input"
               hidden
+              multiple
             />
           </div>
           <button type="submit" class="chat_button">
@@ -79,7 +81,9 @@
         const file = chatInputFile.files[0];
 
         const formData = new FormData();
-        formData.append("image", file);
+        for (const file of chatInputFile.files) {
+          formData.append("images", file);
+        }
 
         fetch("http://localhost:5502/home-pag", {
           method: "POST",
