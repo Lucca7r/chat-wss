@@ -11,6 +11,7 @@ app.use(fileUpload());
 __dirname = path.resolve();
 
 app.use(express.static("C:/Users/adm/Documents/chat-wss"));
+app.use('/output', express.static(path.join(__dirname, 'output')));
 
 app.get("/", (req, res) => {
   res.sendFile(path.resolve("C:/Users/adm/Documents/chat-wss/login.html"));
@@ -20,22 +21,31 @@ const now = require("performance-now");
 
 app.post("/home-pag", (req, res) => {
   console.log("Request received");
-  const file = req.files.image;
-  const output = path.join(__dirname, "output.jpg");
+  let files = req.files.images;
+  const outputDir = path.join(__dirname, "output");
 
   let start = now();
 
-  sharp(file.data)
-    .greyscale()
-    .toFile(output, (err) => {
-      if (err) {
-        console.error(err);
-        res.status(500).send("Image processing failed.");
-      } else {
-        let end = now();
-        console.log(`Processing time: ${(end - start).toFixed(3)} ms`);
-        res.sendFile(output);
-      }
+  // Se apenas um arquivo foi enviado, transforme-o em um array
+  if (!Array.isArray(files)) {
+    files = [files];
+  }
+
+  Promise.all(
+    files.map((file, index) => {
+      const output = path.join(outputDir, `output${index}.jpg`);
+      return sharp(file.data).greyscale().toFile(output);
+    })
+  )
+    .then(() => {
+      let end = now();
+      console.log(`Processing time: ${(end - start).toFixed(3)} ms`);
+      // Enviar um array de URLs para as imagens processadas
+      res.json(files.map((_, index) => `http://localhost:5502/output/output${index}.jpg`));
+    })
+    .catch((err) => {
+      console.error(err);
+      res.status(500).send("Image processing failed.");
     });
 });
 app.listen(5502, () => {
