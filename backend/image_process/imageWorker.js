@@ -1,11 +1,13 @@
-const { parentPort, workerData } = require('worker_threads');
-const Jimp = require('jimp');
+const { parentPort, workerData } = require("worker_threads");
+const sharp = require("sharp");
 
-// Cria uma nova imagem a partir dos dados recebidos
-const image = new Jimp(workerData);
-
-// Converte a imagem para cinza
-image.greyscale();
-
-// Envia os dados da imagem de volta para a thread principal
-parentPort.postMessage(image.bitmap);
+console.log('passei aqui')
+sharp(workerData.fileData)
+  .greyscale()
+  .toFile(workerData.output)
+  .then(() => {
+    parentPort.postMessage({ success: true });
+  })
+  .catch((err) => {
+    parentPort.postMessage({ success: false, error: err });
+  });

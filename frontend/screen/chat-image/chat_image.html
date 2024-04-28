@@ -88,6 +88,11 @@
         event.preventDefault();
         const file = chatInputFile.files[0];
 
+        if (!file) {
+          M.toast({ html: "❌ Selecione uma imagem 📸", classes: "rounded" });
+          return;
+        }
+
         // Gerar um nome aleatório para o parâmetro de cache
         function generateRandomParam() {
           return Math.random().toString(36).substr(2, 9);
@@ -114,6 +119,8 @@
               chatMessageYou.appendChild(img);
 
               M.toast({ html: "✅ imagem processada 📸", classes: "rounded" });
+              
+              chatInputFile.value = "";
             }
           })
           .catch((error) => console.error("Error:", error));
