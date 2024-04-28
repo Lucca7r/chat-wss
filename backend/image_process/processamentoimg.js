@@ -2,7 +2,6 @@ const express = require("express");
 const fileUpload = require("express-fileupload");
 const path = require("path");
 const fs = require("fs");
-const sharp = require("sharp");
 const now = require("performance-now");
 const { Worker } = require("worker_threads");
 
@@ -69,13 +68,12 @@ app.post("/home-pag", (req, res) => {
 
       // Definir o cabeçalho de cache para evitar o armazenamento em cache
       res.set({
-        "Cache-Control": "no-store, no-cache, must-revalidate, private, Pragma: no-cache, Expires: 0, Cache-Control: max-age=0"
+        "Cache-Control":
+          "no-store, no-cache, must-revalidate, private, Pragma: no-cache, Expires: 0, Cache-Control: max-age=0",
       });
 
       // Enviar uma resposta após todos os arquivos serem processados
-      res.json(
-        files.map(
-          (_, index) => `/output/output${index}.jpg`));
+      res.json(files.map((_, index) => `/output/output${index}.jpg`));
     })
     .catch((error) => {
       console.error("Error:", error);
@@ -83,6 +81,7 @@ app.post("/home-pag", (req, res) => {
     });
 });
 
+// Iniciar o servidor
 app.listen(5502, () => {
   console.log("Server started on port 5502");
 });
