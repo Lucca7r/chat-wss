@@ -3,6 +3,14 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <meta
+      http-equiv="Cache-Control"
+      content="no-cache, no-store, must-revalidate"
+    />
+    <meta http-equiv="Pragma" content="no-cache" />
+    <meta http-equiv="Expires" content="0" />
+
     <title>chat</title>
 
     <link
@@ -80,25 +88,36 @@
         event.preventDefault();
         const file = chatInputFile.files[0];
 
+        // Gerar um nome aleatório para o parâmetro de cache
+        function generateRandomParam() {
+          return Math.random().toString(36).substr(2, 9);
+        }
+
+        // Enviar o arquivo para o servidor
         const formData = new FormData();
         for (const file of chatInputFile.files) {
           formData.append("images", file);
         }
 
+        // Enviar o arquivo para o servidor
         fetch("http://localhost:5502/home-pag", {
           method: "POST",
           body: formData,
-        })
+        }) // Receber as URLs das imagens
           .then((response) => response.json())
           .then((urls) => {
             for (const url of urls) {
+              const randomParam = generateRandomParam();
               const img = document.createElement("img");
-              img.src = url;
+              img.src = `${url}?v=${randomParam}`; // Adiciona o parâmetro aleatório
               img.style.width = "100%";
               chatMessageYou.appendChild(img);
+
+              M.toast({ html: "✅ imagem processada 📸", classes: "rounded" });
             }
           })
           .catch((error) => console.error("Error:", error));
+        M.toast({ html: "❌ imagem processada 📸", classes: "rounded" });
       });
     </script>
   </body>

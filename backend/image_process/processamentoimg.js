@@ -2,7 +2,6 @@ const express = require("express");
 const sharp = require("sharp");
 const fs = require("fs");
 const path = require("path");
-const cors = require("cors");
 const app = express();
 
 const fileUpload = require("express-fileupload");
@@ -59,7 +58,9 @@ app.post("/home-pag", (req, res) => {
       console.log(`Processing time: ${(end - start).toFixed(3)} ms`);
 
       // Definir o cabeçalho de cache para evitar o armazenamento em cache
-      res.set("Cache-Control", "no-store, no-cache, must-revalidate, private");
+      res.set({
+        "Cache-Control": "no-store, no-cache, must-revalidate, private, Pragma: no-cache, Expires: 0, Cache-Control: max-age=0"
+      });
 
       // Enviar um array de URLs para as imagens processadas
       res.json(
