@@ -11,19 +11,19 @@ body {
 }
 
 p {
-	text-align: justify;
-}
+    text-align: justify;
+} 
 .color {
-	color: #fff;
+    color: #fff;
 }
 
 .bg-custom {
 	background-color: #171820;
-	font-family: "Poppins";
+	font-family: 'Poppins';
 }
 
 .image-custom {
-	margin-top: -10px;
+    margin-top: -10px;
 }
 
 header {
@@ -49,13 +49,20 @@ header {
 	font-weight: bold;
 }
 
-nav > a {
+/* main {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	flex-direction: column;
+} */
+
+nav>a {
 	margin: 10px;
 	color: white;
 	text-decoration: none;
 }
 
-nav > a:hover {
+nav>a:hover {
 	color: #5a5d6d;
 }
 
@@ -64,95 +71,11 @@ nav > a:hover {
 }
 
 .img_perfil {
-	margin-right: 90px;
-	/* margin-left: 100px; */
-	border-radius: 30px;
-	max-width: 100%;
-	width: 200px;
-	height: 200px;
-	border: #fff;
-	border: 3px solid #fff;
-	margin-top: 15px;
-	display: flex;
-	flex-direction: column;
-}
-
-
-.d-flex.mt-3 {
-	margin-left: 100px;
-}
-
-@media screen and (max-width: 1300px) {
-	.img_perfil {
-		width: 250px;
-		height: 250px
-	}
-	.d-flex.mt-3 {
-		flex-direction: row;
-		border: 2px solid red;
-		flex-wrap: wrap;
-		padding-right: 50px;
-		padding-left: 50px; 
-	}
-
-	.d-flex.mt-3 div {
-		width: 50%;
-	}
-}
-
-@media screen and (max-width: 770px) {
-	.img_perfil {
-		width: 500px;
-		height: 300px;
-		margin-top: 20px;
-	}
-	.d-flex.mt-3 {
-		margin-left: 50px;
-		margin-right: 0px;
-		flex-direction: row;
-		border: 2px solid red;
-		flex-wrap: wrap;
-	}
-
-	.d-flex.mt-3 div {
-		width: 100%;
-	}
-
-	#logo_chat img {
-		width: 35%;
-	}
-
-	#menu-toggle {
-		display: block;
-		background-color: transparent;
-		border: none;
-	}
-
-	nav {
-		display: none;
-		flex-direction: column;
-	}
-
-	nav a {
-		padding: 10px;
-		text-align: center;
-	}
-
-	#menu-toggle span {
-		display: block;
-		width: 25px;
-		height: 3px;
-		margin: 5px 0;
-		background-color: #fff;
-		border-radius: 20px;
-	}
-
-	nav {
-		position: absolute;
-		align-items: flex-end;
-		top: 70px;
-		right: 0;
-		padding: 10px;
-		background-color: #171820;
-	}
+    margin-right: 90px;
+    border-radius: 30px ;
+    width: 200px;
+    height: 200px;
+    border: #fff;
+    border: 3px solid #fff;
+    margin-top: 15px;
 }
