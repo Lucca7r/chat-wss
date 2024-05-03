@@ -88,15 +88,26 @@ nav > a:hover {
 	}
 
 	.d-flex.mt-3 {
-		margin-left: 75px;
+		margin-left: 8%;
 		flex-direction: row;
 		flex-wrap: wrap;
-		padding-right: 70px;
-		padding-left: 50px;
+		padding-right: 0px;
+		padding-left: 5%;
+	}
+
+	#image1,
+	#image3 {
+		margin-left: 0px;
+	}
+
+	#image2,
+	#image4 {
+		margin-left: 130px;
 	}
 
 	.d-flex.mt-3 div {
-		width: 50%;
+		width: 33%;
+		/* margin-left: 150px; */
 	}
 }
 
@@ -107,16 +118,24 @@ nav > a:hover {
 		margin-top: 20px;
 	}
 
+	#image2,
+	#image4 {
+		margin-left: 0px;
+	}
+
 	.d-flex.mt-3 {
-		margin-left: 20px;
+		margin-left: 10%;
 		margin-right: 0px;
 		border: none;
 		flex-direction: row;
 		flex-wrap: wrap;
+		padding-left: 5%;
+		padding-right: 9%;
 	}
 
 	.d-flex.mt-3 div {
 		width: 100%;
+		margin-left: 0px;
 	}
 
 	#logo_chat img {
