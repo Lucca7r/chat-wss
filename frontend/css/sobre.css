@@ -77,7 +77,6 @@ nav > a:hover {
 	flex-direction: column;
 }
 
-
 .d-flex.mt-3 {
 	margin-left: 100px;
 }
@@ -85,14 +84,15 @@ nav > a:hover {
 @media screen and (max-width: 1300px) {
 	.img_perfil {
 		width: 250px;
-		height: 250px
+		height: 250px;
 	}
+
 	.d-flex.mt-3 {
+		margin-left: 75px;
 		flex-direction: row;
-		border: 2px solid red;
 		flex-wrap: wrap;
-		padding-right: 50px;
-		padding-left: 50px; 
+		padding-right: 70px;
+		padding-left: 50px;
 	}
 
 	.d-flex.mt-3 div {
@@ -102,15 +102,16 @@ nav > a:hover {
 
 @media screen and (max-width: 770px) {
 	.img_perfil {
-		width: 500px;
+		width: 400px;
 		height: 300px;
 		margin-top: 20px;
 	}
+
 	.d-flex.mt-3 {
-		margin-left: 50px;
+		margin-left: 20px;
 		margin-right: 0px;
+		border: none;
 		flex-direction: row;
-		border: 2px solid red;
 		flex-wrap: wrap;
 	}
 
