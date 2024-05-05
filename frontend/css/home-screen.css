@@ -64,19 +64,18 @@ header {
   right: 15px;
   top: 50%;
   transform: translateY(-50%);
-  cursor: pointer;
 }
 
 nav {
   border-right: solid 1px #5a5d6d;
   width: 400px;
   color: white;
-  display: flex; !important;
-  flex-direction: column; !important;
-  align-items: center;  !important;
+  display: flex; 
+  flex-direction: column; 
+  align-items: center;
 }
 
-#chats > h2 {
+#chats>h2 {
   margin-top: 24px;
   margin-bottom: 14px;
   display: flex;
@@ -111,7 +110,7 @@ a {
   width: 100%;
 }
 
-#ferramentas > h2 {
+#ferramentas>h2 {
   margin-top: 24px;
   margin-bottom: 14px;
   display: flex;
@@ -119,7 +118,7 @@ a {
   justify-content: center;
 }
 
-#ferramentas > a {
+#ferramentas>a {
   width: 100%;
   height: 100%;
 }
@@ -142,7 +141,7 @@ a {
 }
 
 #menu-toggle {
-	display: none;
+  display: none;
 }
 
 .rounded {
@@ -154,43 +153,47 @@ a {
   font-family: "poppins";
   font-weight: bold;
   /* Adicione as seguintes linhas */
-  position: absolute  ;
+  position: absolute;
   right: 0;
   margin-top: 110px;
 }
 
 @media screen and (max-width: 530px) {
-	#logo_chat img {
-		width: 35%;
-	}
-	
-	#menu-toggle {
-		display: block;
-		background-color: transparent;
-		border: none;
-	}
+  #logo_chat img {
+    width: 35%;
+  }
 
-	nav {
-		display: none;
-		flex-direction: column;
-	}
+  #menu-toggle {
+    display: block;
+    background-color: transparent;
+    border: none;
+  }
 
-	nav a {
-		padding: 10px;
-		text-align: center;
-	}
+  nav {
+    display: none;
+    flex-direction: column;
+  }
 
-	#menu-toggle span {
-		display: block;
-		width: 25px;
-		height: 3px;
-		margin: 5px 0;
-		background-color: #fff;
-		border-radius: 20px;
-	}
+  nav a {
+    padding: 10px;
+    text-align: center;
+  }
 
-	#conteudo {
-		height: 80vh;
-	}
+  #menu-toggle span {
+    display: block;
+    width: 25px;
+    height: 3px;
+    margin: 5px 0;
+    background-color: #fff;
+    border-radius: 20px;
+  }
+
+  #conteudo {
+    height: 80vh;
+  }
+
+  #nome_user {
+    display: none;
+  }
 
 }

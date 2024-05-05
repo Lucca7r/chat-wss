@@ -15,8 +15,16 @@ body {
   height: 100%;
 }
 
-section.chat_massage {
+.chat_massage {
   width: 100%;
+}
+
+.chat_section {
+  flex-grow: 1;
+  padding: 15px 15px 30px;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
 }
 
 .container {
@@ -36,10 +44,11 @@ section.chat_massage {
 
 .chat_massage {
   flex-grow: 1;
-  padding: 15px 15px 90px;
+  padding: 15px 15px 0px;
   display: flex;
   flex-direction: column;
-  justify-content: flex-end;
+  max-height: 95vh;
+  overflow-y: auto;
 }
 
 #chat_form_img {
@@ -47,6 +56,7 @@ section.chat_massage {
     align-items: center;
     justify-content: center;
     gap: 10px;
+    margin-bottom: 20px;
 }
 
 .chat_input {
