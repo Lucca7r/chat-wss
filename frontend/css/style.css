@@ -17,6 +17,8 @@ body {
 
 .chat_massage {
   width: 100%;
+  max-height: 900px;
+  overflow-y: auto;
 }
 
 .chat_section {
