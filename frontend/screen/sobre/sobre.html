@@ -8,7 +8,7 @@
 
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Chat-wss Sobre</title>
+    <title>Sobre</title>
 
     <!-- Bootstrap -->
     <link
@@ -21,11 +21,11 @@
       rel="icon"
       type="image/png"
       sizes="16x16"
-      href="frontend/screen/Home/assets/chatbalao.png"
+      href="assets/chatbalao.png"
     />
 
   <link rel="stylesheet" href="/frontend/css/sobre.css" />
-  <link rel="icon" type="image/png" sizes="16x16" href="frontend/screen/Home/assets/chatbalao.png" />
+  <link rel="icon" type="image/png" sizes="16x16" href="assets/chatbalao.png" />
 </head>
 
 <body class="bg-custom">
@@ -34,12 +34,12 @@
       <img src="/frontend/screen/Home/assets/chatbalao.png" alt="logo" />
       <h1>Chat</h1>
     </div>
-    <button id="menu-toggle" aria-label="Menu" aria-controls="menu">
+    <button id="menu-toggle-sobre" aria-label="Menu" aria-controls="menu">
         <span></span>
         <span></span>
         <span></span>
     </button>
-    <nav id="menu">
+    <nav id="menu-sobre">
       <a href="../../../login.html">Login</a>
       <a href="">Sobre</a>
     </nav>
@@ -98,7 +98,18 @@
       </div>
     </div>
   </main>
-  <script src="/frontend/js/Home.js"></script>
+  <script>
+    document.getElementById('menu-toggle-sobre').addEventListener('click', function () {
+    console.log("aaaa");
+    var menuSobre = document.getElementById('menu-sobre');
+    if (menuSobre.style.display === 'flex') {
+      menuSobre.style.display = 'none';
+    } else {
+      menuSobre.style.display = 'flex';
+      menuSobre.style.flexDirection = 'column';
+    }
+  });
+  </script>
 </body>
 
 </html>
