@@ -9,11 +9,11 @@ app.use(fileUpload());
 
 __dirname = path.resolve();
 
-app.use(express.static("C:/Users/adm/Documents/chat-wss"));
+app.use(express.static("https://chat-wss-kutn.onrender.com/."));
 app.use("/output", express.static(path.join(__dirname, "output")));
 
 app.get("/", (req, res) => {
-  res.sendFile(path.resolve("C:/Users/adm/Documents/chat-wss/login.html"));
+  res.sendFile(path.resolve("https://chat-wss-kutn.onrender.com/login.html"));
 });
 
 const now = require("performance-now");
