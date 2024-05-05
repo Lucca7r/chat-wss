@@ -33,6 +33,7 @@
 .login__header h1 {
 	color: #fff;
 	font-size: 1.5em;
+	text-align: center;
 }
 
 .login__input {

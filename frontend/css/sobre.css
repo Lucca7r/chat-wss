@@ -71,11 +71,115 @@ nav>a:hover {
 }
 
 .img_perfil {
-    margin-right: 90px;
-    border-radius: 30px ;
-    width: 200px;
-    height: 200px;
-    border: #fff;
-    border: 3px solid #fff;
-    margin-top: 15px;
+	margin-right: 90px;
+	/* margin-left: 100px; */
+	border-radius: 30px;
+	max-width: 100%;
+	width: 200px;
+	height: 200px;
+	border: #fff;
+	border: 3px solid #fff;
+	margin-top: 15px;
+	display: flex;
+	flex-direction: column;
+}
+
+.d-flex.mt-3 {
+	margin-left: 100px;
+}
+
+@media screen and (max-width: 1300px) {
+	.img_perfil {
+		width: 250px;
+		height: 250px;
+	}
+
+	.d-flex.mt-3 {
+		margin-left: 8%;
+		flex-direction: row;
+		flex-wrap: wrap;
+		padding-right: 0px;
+		padding-left: 5%;
+	}
+
+	#image1,
+	#image3 {
+		margin-left: 0px;
+	}
+
+	#image2,
+	#image4 {
+		margin-left: 130px;
+	}
+
+	.d-flex.mt-3 div {
+		width: 33%;
+		/* margin-left: 150px; */
+	}
+}
+
+@media screen and (max-width: 770px) {
+	.img_perfil {
+		width: 400px;
+		height: 300px;
+		margin-top: 20px;
+	}
+
+	#image2,
+	#image4 {
+		margin-left: 0px;
+	}
+
+	.d-flex.mt-3 {
+		margin-left: 10%;
+		margin-right: 0px;
+		border: none;
+		flex-direction: row;
+		flex-wrap: wrap;
+		padding-left: 5%;
+		padding-right: 9%;
+	}
+
+	.d-flex.mt-3 div {
+		width: 100%;
+		margin-left: 0px;
+	}
+
+	#logo_chat img {
+		width: 35%;
+	}
+
+	#menu-toggle {
+		display: block;
+		background-color: transparent;
+		border: none;
+	}
+
+	nav {
+		display: none;
+		flex-direction: column;
+	}
+
+	nav a {
+		padding: 10px;
+		text-align: center;
+	}
+
+	#menu-toggle span {
+		display: block;
+		width: 25px;
+		height: 3px;
+		margin: 5px 0;
+		background-color: #fff;
+		border-radius: 20px;
+	}
+
+	nav {
+		position: absolute;
+		align-items: flex-end;
+		top: 70px;
+		right: 0;
+		padding: 10px;
+		background-color: #171820;
+	}
 }
