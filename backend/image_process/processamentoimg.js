@@ -63,23 +63,35 @@ app.post("/home-pag", (req, res) => {
       // Enviar uma resposta após todos os arquivos serem processados
       res.json(files.map((_, index) => `/output/output${index}.jpg`));
 
-      // Limpar a pasta de saída após um certo período de tempo (por exemplo, 5 minutos)
+      // Excluir arquivos após 1 minutos
       setTimeout(() => {
         fs.readdir(outputDir, (err, files) => {
           if (err) throw err;
 
           // Excluir todos os arquivos na pasta de saída
-          for (const file of files) {
-            fs.unlink(path.join(outputDir, file), (err) => {
-              if (err) throw err;
+          let deletePromises = files.map((file) => {
+            return new Promise((resolve, reject) => {
+              fs.unlink(path.join(outputDir, file), (err) => {
+                if (err) reject(err);
+                resolve();
+              });
             });
-          }
+          });
+
+          Promise.all(deletePromises)
+            .then(() => {
+              console.log("Deletados com sucesso!");
+            })
+            .catch((err) => {
+              // Tratar qualquer erro que possa ter ocorrido durante a exclusão
+              console.error(err);
+            });
         });
-      }, 5 * 60 * 1000);
+      }, 60000); // Tempo de exclusão
     })
     .catch((error) => {
       console.error("Error:", error);
-      res.status(500).send("An error occurred while processing the images.");
+      res.status(500).send("um erro ocorreu no processamento da imagem");
     });
 });
 
