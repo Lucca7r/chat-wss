@@ -29,10 +29,7 @@ app.post("/home-pag", (req, res) => {
   if (!Array.isArray(files)) {
     files = [files];
   }
-  // Se apenas um arquivo foi enviado, transforme-o em um array
-  if (!Array.isArray(files)) {
-    files = [files];
-  }
+ 
 
   // Processar cada arquivo
   let workers = files.map((file, index) => {
@@ -63,12 +60,7 @@ app.post("/home-pag", (req, res) => {
         "Cache-Control":
           "no-store, no-cache, must-revalidate, private, Pragma: no-cache, Expires: 0, Cache-Control: max-age=0",
       });
-      // Definir o cabeçalho de cache para evitar o armazenamento em cache
-      res.set({
-        "Cache-Control":
-          "no-store, no-cache, must-revalidate, private, Pragma: no-cache, Expires: 0, Cache-Control: max-age=0",
-      });
-
+      
       // Enviar uma resposta após todos os arquivos serem processados
       res.json(files.map((_, index) => `/output/output${index}.jpg`));
 
