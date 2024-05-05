@@ -18,18 +18,20 @@ fetch(url)
     photoUser.innerHTML = `<img id="img_user" src="${img}" alt="user" />`;
   });
 
+
 chatGeral.addEventListener("click", function (event) {
-  event.preventDefault();
-  toggleMenu();
-  fetch("chat_geral.html")
-    .then((response) => response.text())
-    .then((data) => {
-      document.getElementById("conteudo").innerHTML = data;
-      executeScriptInContent();
-    })
-    .catch((error) => {
-      console.error("Error:", error);
-    });
+	event.preventDefault();
+	toggleMenu();
+	fetch("chat_geral.html")
+		.then((response) => response.text())
+		.then((data) => {
+			document.getElementById("conteudo").innerHTML = data;
+			executeScriptInContent();
+			scrollToBottom();
+		})
+		.catch((error) => {
+			console.error("Error:", error);
+		});
 });
 
 chatImage.addEventListener("click", function (event) {
@@ -75,16 +77,17 @@ player_musica.addEventListener("click", function (event) {
 });
 
 calculadora.addEventListener("click", function (event) {
-  event.preventDefault();
-  fetch("../calculadora/calculadora.html")
-    .then((response) => response.text())
-    .then((data) => {
-      document.getElementById("conteudo").innerHTML = data;
-      executeScriptInContent2();
-    })
-    .catch((error) => {
-      console.error("Error:", error);
-    });
+	event.preventDefault();
+	toggleMenu();
+	fetch("../calculadora/calculadora.html")
+		.then((response) => response.text())
+		.then((data) => {
+			document.getElementById("conteudo").innerHTML = data;
+			executeScriptInContent2();
+		})
+		.catch((error) => {
+			console.error("Error:", error);
+		});
 });
 
 function executeScriptInContent() {
@@ -116,21 +119,20 @@ window.addEventListener("DOMContentLoaded", (event) => {
 });
 
 function toggleMenu() {
-  var menu = document.getElementById("menu");
-  var conteudo = document.getElementById("conteudo");
-  var screenWidth = window.innerWidth; // Get the current screen width
+	var menu = document.getElementById('menu');
+	var conteudo = document.getElementById('conteudo');
+	var screenWidth = window.innerWidth; // Get the current screen width
 
-  if (screenWidth <= 425) {
-    // Check if the screen width is 425 pixels or less
-    if (menu.style.display === "flex") {
-      menu.style.display = "none";
-      conteudo.style.display = "flex";
-    } else {
-      menu.style.display = "flex";
-      menu.style.flexDirection = "column";
-      conteudo.style.display = "none";
-    }
-  }
+	if (screenWidth <= 425) { // Check if the screen width is 425 pixels or less
+		if (menu.style.display === 'flex') {
+			menu.style.display = 'none';
+			conteudo.style.display = 'flex';
+		} else {
+			menu.style.display = 'flex';
+			menu.style.flexDirection = 'column';
+			conteudo.style.display = 'none';
+		}
+	}
 }
 
 document.getElementById("menu-toggle").addEventListener("click", function () {
@@ -147,5 +149,30 @@ document.getElementById("menu-toggle").addEventListener("click", function () {
 });
 
 document.addEventListener("DOMContentLoaded", function () {
-  M.toast({ html: "bem vindo ao super chat 👾📸", classes: "rounded" });
+	chatGeral.click();
+
+	M.toast({ html: "Bem vindo ao super chat 👾📸", classes: "rounded" });
 });
+
+var buscador = document.getElementById("buscador");
+var chatLinks = document.querySelectorAll("#chats a");
+var ferramentasLinks = document.querySelectorAll("#ferramentas a");
+var allLinks = Array.from(chatLinks).concat(Array.from(ferramentasLinks));
+
+buscador.addEventListener("input", function () {
+	var searchText = buscador.value.toLowerCase(); 
+
+	allLinks.forEach(function (link) {
+		var linkText = link.querySelector("p").textContent.toLowerCase();
+		if (linkText.includes(searchText)) {
+			link.style.display = "flex"; 
+		} else {
+			link.style.display = "none"; 
+		}
+	});
+});
+
+function scrollToBottom() {
+    document.body.scrollTop = document.body.scrollHeight;
+    document.documentElement.scrollTop = document.documentElement.scrollHeight;
+}
