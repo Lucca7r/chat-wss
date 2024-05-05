@@ -1,7 +1,7 @@
 [build]
-  base = "backend"
+  base = "."
   publish = "backend/package.json"
-  command = "npm run build"
+  command = "npm run start"
   
 
 [[headers]]
