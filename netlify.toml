@@ -1,0 +1,12 @@
+[build]
+  base = "backend"
+  publish = "backend/package.json"
+  command = "npm run build"
+  
+
+[[headers]]
+  # Cabeçalhos personalizados (opcional)
+  path = "/*"
+  header = {
+    "Content-Security-Policy" = "default-src 'self'; script-src 'self' 'unsafe-inline' 'unsafe-eval' https://unpkg.com; object-src 'none'; img-src 'self' data:; font-src 'self' data:; style-src 'self' 'unsafe-inline'; connect-src 'self' https://unpkg.com"
+  }
