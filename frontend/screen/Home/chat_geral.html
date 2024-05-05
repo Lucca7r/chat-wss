@@ -63,6 +63,13 @@
         "gold",
       ];
 
+      const scrollScreem = () => {
+        window.scrollTo({
+          top: document.body.scrollHeight,
+          behavior: "smooth",
+        });
+      };
+
       const getRandomColor = () => {
         const randomIndex = Math.floor(Math.random() * colors.length);
         return colors[randomIndex];
@@ -108,6 +115,7 @@
             ? createMessageSelfElement(content)
             : createMessageOtherElement(content, userName, userColor);
         chatMessages.appendChild(message);
+        scrollScreem();
       };
 
       const user = {
@@ -117,7 +125,7 @@
       };
 
       // Conectar ao WebSocket
-      websocket = new WebSocket("ws://localhost:8080");
+      websocket = new WebSocket("wss://chat-wss-backend.onrender.com");
 
       // Evento que ocorre quando a conexão é estabelecida
       websocket.addEventListener("open", (event) => {
