@@ -8,11 +8,11 @@ const { Worker } = require("worker_threads");
 const app = express();
 app.use(fileUpload());
 
-app.use(express.static("C:/Users/adm/Documents/chat-wss"));
+app.use(express.static("C:/Users/medra/OneDrive/Documentos/Luan/Faculdade/4-Semestre/Programacao-web-paralelismo-projeto/Chat-WSS"));
 app.use("/output", express.static(path.join(__dirname, "../output")));
 
 app.get("/", (req, res) => {
-  res.sendFile(path.resolve("C:/Users/adm/Documents/chat-wss/login.html"));
+  res.sendFile(path.resolve("C:/Users/medra/OneDrive/Documentos/Luan/Faculdade/4-Semestre/Programacao-web-paralelismo-projeto/Chat-WSS/login.html"));
 });
 
 app.post("/home-pag", (req, res) => {
