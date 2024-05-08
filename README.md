@@ -1,18 +1,153 @@
+LINK SLIDE projeto paralelismo: https://www.canva.com/design/DAGEZo8KEo4/wQBQqieZjLHJbaTPehZlOA/edit?utm_content=DAGEZo8KEo4&utm_campaign=designshare&utm_medium=link2&utm_source=sharebutton
 
-<h1 align="center">BOM DIA AMIGOS, LEMBRETES</h1>
+<h1 align="center">📝 CHAT-WSS 📝</h1>
 
-
-# 📝ATENÇÃO:
-
-NAO FIQUE ESTOCANDO A BRANCH FAÇA O QUE TEM QUE FAZER E TERMINE O MERGE<br>
-PELO AMOR DE DEUS USE  <strong>GIT PULL</strong>  ANTES DE FAZER QUALQUER COISAS PRA GENTE NAO SE FUDER DEPOIS <br>
-E ISSO MEUS LINDOS(AS) VAMOS FAZER O MELHOR TRABALHO DESSA FACULDADE (DE NOVO)<BR>
+<p align="center">
+<img src="./assets/CAPACHAT.gif" alt="capa do projeto" width="700"><br>
 
 
+<p align="center">Projeto desenvolvido em JavaScript e Node.js<br> 
+</p>
 
-# ©Licença:
+<p align="center">
+  <a href="#-descrição">Descrição</a>&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;
+  <a href="#-tecnologias">Tecnologias</a>&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;
+  <a href="#-projeto">Projeto</a>&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;
+  <a href="#colaboradores">Colaboradores</a>&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;
+</p>
 
-Este repositório está licenciado sob a licença MIT.
 <p align="center">
   <img alt="License" src="https://img.shields.io/static/v1?label=license&message=MIT&color=49AA26&labelColor=000000">
 </p>
+
+<br>
+
+
+# 📝 Descrição
+
+Este projeto foi feito para uma atividade acadêmica. Ele conta com um chat geral, uma conexão websocket, um jogo da memória, um player de música, um processamento de imagem para escala de cinza, utilizando o servidor Node para servir a imagem processada para o usuário, e uma calculadora.
+tambem contando com a API da unsplash para servi imagens random
+
+## 🚀 Tecnologias
+
+Esse projeto foi desenvolvido com as seguintes tecnologias:
+
+- Javascript
+- HTML & CSS
+- Boostrap & materialize
+- API unsplash
+- Node.JS
+- Websocket
+- Git e Github
+
+## 💻 Projeto
+<span> 
+
+  
+<p align="center">
+  <strong>Tela Login</strong><br><br>
+<img src="./assets/telaLogin.png" alt="Tela de de start do projeto rodando" width="600">
+  <br><br>
+Esta é uma página HTML para um formulário de login com tema sombrio. Ele usa Bootstrap para layout e estilo. O formulário possui um único campo de entrada para nome de usuário (denominado "Login") e uma caixa de seleção "Lembre de mim".
+<br>
+ </p>
+<br>
+
+##
+<br>
+<p align="center">
+  <strong>Tela de home</strong><br>
+<img src="./assets/telaHome.png" alt="tela de login da aplicação" width="600">
+  <br><br>
+
+ Aqui temos a tela de home onde voce encontra todas as funcionalidade de navegacao contando com o toast de bem vindo usando materialize
+<br>
+</p>
+<br>
+
+##
+
+<p align="center">
+   <strong>Tela de jogo da memoria</strong><br>
+<img src="./assets/jogoMemoria.png" alt="" width="600">
+  <br><br>
+
+  Esse é nosso jogo da memoria com o tema do rick and morty, fazemos o random das cartas e quando consegue acha todas aparace a notificacao do seu tempo no toast
+
+<br>
+</p>
+<br>
+
+##
+
+
+<p align="center">
+  <strong>Tela com player de musica</strong><br>
+<img src="./assets/playerMusica.png" alt="" width="600">
+<br><br>
+
+Aqui temos nosso player de musica com alguns classicos incontestaveis 
+  
+<br>
+</p>
+<br>
+
+##
+
+
+<p align="center">
+  <strong>Tela com processamento de imagem</strong><br>
+<img src="./assets/imgProcessamento.png" alt="" width="600">
+<br><br>
+
+
+ Aqui temos nosso processamento de imagem, onde com o noda usando o sharp fazemos a escala de cinza em qualquer imagem que o usuario enviar
+
+ funcina com processamento no servido do node.js onde usamos a biblioteca sharp para fazer a escala de cinza com mais eficiencia possivel
+  <br>
+</p>
+<br>
+
+##
+
+<p align="center">
+  <strong>Tela calculadora</strong><br>
+<img src="./assets/calculadora.png" alt="" width="600">
+    <br>
+
+    e chegamos na nossa classica calculadora
+</p>
+<br>
+
+  
+</span>
+
+
+## 👾Config
+
+  - para fazer a inicializacao 
+  <br>
+  <p>
+  <br>
+      npm run start && npm run img
+  </p>
+<br>
+  <p>
+  - Assim voce consegue da o start no chat e no processamento de imagem para escala de cinza
+  </p>
+
+## 🤝Colaboradores
+
+
+- Colaboradores que fizeram parte do projeto.
+<br><br>
+
+     -  [@Lorrana Nasareth](https://github.com/LorranaNS)
+    <br><br>
+     -  [@Luan Medrado](https://github.com/LuanMedrado8)
+        <br><br>
+     -  [@Guilherme Braga](https://github.com/guiibrag4)
+        <br><br>
+        
+ 
+
