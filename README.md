@@ -56,7 +56,7 @@ Esta é uma página HTML para um formulário de login com tema sombrio. Ele usa 
 ##
 <br>
 <p align="center">
-  <strong>Tela de login</strong><br>
+  <strong>Tela de home</strong><br>
 <img src="./assets/telaHome.png" alt="tela de login da aplicação" width="600">
   <br><br>
 
@@ -68,7 +68,7 @@ Esta é uma página HTML para um formulário de login com tema sombrio. Ele usa 
 ##
 
 <p align="center">
-   <strong>Tela de inscrever-se</strong><br>
+   <strong>Tela de jogo da memoria</strong><br>
 <img src="./assets/jogoMemoria.png" alt="" width="600">
   <br><br>
 
@@ -82,7 +82,7 @@ Esta é uma página HTML para um formulário de login com tema sombrio. Ele usa 
 
 
 <p align="center">
-  <strong>Tela com lista de tarefas</strong><br>
+  <strong>Tela com player de musica</strong><br>
 <img src="./assets/playerMusica.png" alt="" width="600">
 <br><br>
 
@@ -96,11 +96,14 @@ Aqui temos nosso player de musica com alguns classicos incontestaveis
 
 
 <p align="center">
-  <strong>Tela com lista de tarefas</strong><br>
+  <strong>Tela com processamento de imagem</strong><br>
 <img src="./assets/imgProcessamento.png" alt="" width="600">
 <br><br>
 
+
  Aqui temos nosso processamento de imagem, onde com o noda usando o sharp fazemos a escala de cinza em qualquer imagem que o usuario enviar
+
+ funcina com processamento no servido do node.js onde usamos a biblioteca sharp para fazer a escala de cinza com mais eficiencia possivel
   <br>
 </p>
 <br>
@@ -108,7 +111,7 @@ Aqui temos nosso player de musica com alguns classicos incontestaveis
 ##
 
 <p align="center">
-  <strong>Tela confirmações de excluisão</strong><br>
+  <strong>Tela calculadora</strong><br>
 <img src="./assets/calculadora.png" alt="" width="600">
     <br>
 
