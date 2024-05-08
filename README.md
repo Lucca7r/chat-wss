@@ -119,6 +119,19 @@ Aqui temos nosso player de musica com alguns classicos incontestaveis
   
 </span>
 
+
+## 👾Config
+
+  - para fazer a inicializacao 
+  <br>
+  <p>
+  npm run start && npm run img
+  </p>
+
+  <p>
+  - Assim voce consegue da o start no chat e no processamento de imagem para escala de cinza
+  </p>
+
 ## 🤝Colaboradores
 
 
