@@ -149,7 +149,7 @@ nav>a:hover {
 		width: 35%;
 	}
 
-	#menu-toggle {
+	#menu-toggle-sobre {
 		display: block;
 		background-color: transparent;
 		border: none;
@@ -165,7 +165,7 @@ nav>a:hover {
 		text-align: center;
 	}
 
-	#menu-toggle span {
+	#menu-toggle-sobre span {
 		display: block;
 		width: 25px;
 		height: 3px;
